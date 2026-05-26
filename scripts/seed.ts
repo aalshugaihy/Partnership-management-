@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { db, computeActivationScore, deriveStage } from '../lib/db'
+import { ensureDefaultAdmin } from '../lib/auth'
 
 type RawPartner = {
   id: number
@@ -178,7 +179,11 @@ const tx = d.transaction(() => {
 })
 tx()
 
+ensureDefaultAdmin()
+
 const total = (d.prepare('SELECT COUNT(*) as n FROM partners').get() as any).n
 const contacts = (d.prepare('SELECT COUNT(*) as n FROM contacts').get() as any).n
 const licensed = (d.prepare('SELECT COUNT(*) as n FROM licensed_companies').get() as any).n
-console.log(`Seeded: ${total} partners, ${contacts} contacts, ${licensed} licensed companies`)
+const users = (d.prepare('SELECT COUNT(*) as n FROM users').get() as any).n
+console.log(`Seeded: ${total} partners, ${contacts} contacts, ${licensed} licensed companies, ${users} user(s)`)
+console.log(`Default login: ${process.env.ADMIN_EMAIL || 'admin@local'} / ${process.env.ADMIN_PASSWORD || 'admin1234'}`)

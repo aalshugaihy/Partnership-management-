@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { UpdatePartnerForm } from './UpdatePartnerForm'
 import { AddActivityForm } from './AddActivityForm'
+import { AttachmentsCard } from './AttachmentsCard'
 
 export const dynamic = 'force-dynamic'
 
@@ -72,6 +73,8 @@ export default function PartnerDetail({ params }: { params: { id: string } }) {
       </div>
 
       <UpdatePartnerForm partner={partner} />
+
+      <AttachmentsCard partnerId={partner.id} />
 
       <div className="grid md:grid-cols-2 gap-4">
         <div className="card p-5">
