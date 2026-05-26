@@ -1,9 +1,11 @@
+import { requireAuth } from '@/lib/auth'
 import { db } from '@/lib/db'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
 export default function WorkshopsPage() {
+  requireAuth()
   const workshops = db().prepare(`
     SELECT id, company, workshop_date, workshop_time, workshop_attendance, platform, sector
     FROM partners

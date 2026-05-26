@@ -98,6 +98,18 @@ function migrate(d: Database.Database) {
       key TEXT PRIMARY KEY,
       value TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS impact_snapshots (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      taken_at TEXT DEFAULT (datetime('now')),
+      total_partners INTEGER,
+      activated INTEGER,
+      response_rate INTEGER,
+      workshops_held INTEGER,
+      avg_activation INTEGER,
+      open_opportunities INTEGER,
+      pipeline_value REAL
+    );
   `)
 }
 

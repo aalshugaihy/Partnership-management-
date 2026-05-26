@@ -1,10 +1,13 @@
-import { getKPIs, overview } from '@/lib/queries'
+import { requireAuth } from '@/lib/auth'
+import { getKPIs, overview, listSnapshots } from '@/lib/queries'
 import { db } from '@/lib/db'
-import { BarChartCard } from '@/components/Charts'
+import { BarChartCard, TrendChart } from '@/components/Charts'
+import { SnapshotButton } from './SnapshotButton'
 
 export const dynamic = 'force-dynamic'
 
 export default function KPIPage() {
+  requireAuth()
   const ov = overview()
   const kpis = getKPIs()
 
@@ -23,11 +26,21 @@ export default function KPIPage() {
     ORDER BY estimated_value DESC
   `).all() as any[]
 
+  const snapshots = listSnapshots(30).map(s => ({
+    label: new Date(s.taken_at).toLocaleDateString('ar-SA', { month: 'short', day: 'numeric' }),
+    'مفعّلة': s.activated,
+    'نسبة الرد': s.response_rate,
+    'متوسط التفعيل': s.avg_activation,
+  }))
+
   return (
     <div className="space-y-6">
-      <header>
-        <h1 className="text-2xl font-black">مؤشرات الأداء والأثر</h1>
-        <p className="text-slate-500 mt-1">قياس أثر الشراكات على أهداف المنظمة</p>
+      <header className="flex justify-between items-end flex-wrap gap-3">
+        <div>
+          <h1 className="text-2xl font-black">مؤشرات الأداء والأثر</h1>
+          <p className="text-slate-500 mt-1">قياس أثر الشراكات على أهداف المنظمة</p>
+        </div>
+        <SnapshotButton />
       </header>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -56,6 +69,17 @@ export default function KPIPage() {
             </div>
           )
         })}
+      </div>
+
+      <div className="card p-5">
+        <h3 className="font-bold mb-3">تتبع الأثر عبر الزمن</h3>
+        {snapshots.length > 1 ? (
+          <TrendChart data={snapshots} />
+        ) : (
+          <div className="text-center text-slate-500 py-12 text-sm">
+            لا توجد لقطات كافية بعد. اضغط <strong>تسجيل لقطة الآن</strong> لبدء التتبع الزمني.
+          </div>
+        )}
       </div>
 
       <div className="card p-5">

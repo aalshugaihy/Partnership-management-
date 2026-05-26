@@ -1,7 +1,9 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { db, computeActivationScore, deriveStage } from '@/lib/db'
 
 export async function POST(req: NextRequest) {
+  const g = requireAuthApi(); if (g) return g;
   const body = await req.json()
   if (!body.company || typeof body.company !== 'string') {
     return NextResponse.json({ error: 'company required' }, { status: 400 })

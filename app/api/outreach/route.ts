@@ -1,3 +1,4 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { db, Partner } from '@/lib/db'
 import { TEMPLATES } from '@/lib/outreach'
@@ -9,6 +10,7 @@ function csvEscape(v: any): string {
 }
 
 export async function POST(req: NextRequest) {
+  const g = requireAuthApi(); if (g) return g;
   const { templateId, partnerIds } = await req.json()
   const tpl = TEMPLATES.find(t => t.id === templateId)
   if (!tpl) return NextResponse.json({ error: 'template not found' }, { status: 404 })

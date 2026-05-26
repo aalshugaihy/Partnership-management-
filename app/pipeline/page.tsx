@@ -1,3 +1,4 @@
+import { requireAuth } from '@/lib/auth'
 import { listPartners } from '@/lib/queries'
 import { STAGES } from '@/lib/db'
 import Link from 'next/link'
@@ -5,6 +6,7 @@ import Link from 'next/link'
 export const dynamic = 'force-dynamic'
 
 export default function PipelinePage() {
+  requireAuth()
   const all = listPartners()
   const groups = STAGES.map(stage => ({
     stage,

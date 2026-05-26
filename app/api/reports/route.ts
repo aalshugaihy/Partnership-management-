@@ -1,7 +1,9 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { buildExecutiveReport, generateRecommendations } from '@/lib/queries'
 
 export async function GET(_req: NextRequest) {
+  const g = requireAuthApi(); if (g) return g;
   const r = buildExecutiveReport()
   const recs = generateRecommendations()
 

@@ -1,3 +1,4 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import ExcelJS from 'exceljs'
 import { db, computeActivationScore, deriveStage } from '@/lib/db'
@@ -23,6 +24,7 @@ function s(v: any): string | null {
 }
 
 export async function POST(req: NextRequest) {
+  const g = requireAuthApi(); if (g) return g;
   try {
     const form = await req.formData()
     const file = form.get('file') as File | null

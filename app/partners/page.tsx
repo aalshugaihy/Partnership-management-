@@ -1,3 +1,4 @@
+import { requireAuth } from '@/lib/auth'
 import { listPartners } from '@/lib/queries'
 import { db, STAGES } from '@/lib/db'
 import Link from 'next/link'
@@ -6,6 +7,7 @@ import { AddPartnerDialog } from '@/components/AddPartnerDialog'
 export const dynamic = 'force-dynamic'
 
 export default function PartnersPage({ searchParams }: { searchParams: { q?: string; stage?: string; tier?: string; sector?: string } }) {
+  requireAuth()
   const partners = listPartners(searchParams)
   const sectors = (db().prepare('SELECT DISTINCT sector FROM partners ORDER BY sector').all() as any[])
     .map(r => r.sector).filter(Boolean)

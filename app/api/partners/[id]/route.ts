@@ -1,8 +1,10 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import { db, computeActivationScore, deriveStage } from '@/lib/db'
 import { logActivity } from '@/lib/queries'
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+  const g = requireAuthApi(); if (g) return g;
   const id = Number(params.id)
   const body = await req.json()
   const cur = db().prepare('SELECT * FROM partners WHERE id = ?').get(id) as any

@@ -1,9 +1,11 @@
+import { requireAuth } from '@/lib/auth'
 import { generateRecommendations } from '@/lib/queries'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
 export default function RecommendationsPage() {
+  requireAuth()
   const recs = generateRecommendations()
 
   return (

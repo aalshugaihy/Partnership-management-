@@ -1,3 +1,4 @@
+import { requireAuth } from '@/lib/auth'
 import { overview } from '@/lib/queries'
 import { BarChartCard, PieChartCard, ActivationGauge } from '@/components/Charts'
 import Link from 'next/link'
@@ -5,6 +6,7 @@ import Link from 'next/link'
 export const dynamic = 'force-dynamic'
 
 export default function Dashboard() {
+  requireAuth()
   const ov = overview()
 
   return (

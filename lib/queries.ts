@@ -241,6 +241,34 @@ export type ReportSummary = {
   topOpportunities: any[]
 }
 
+export type Snapshot = {
+  id: number
+  taken_at: string
+  total_partners: number
+  activated: number
+  response_rate: number
+  workshops_held: number
+  avg_activation: number
+  open_opportunities: number
+  pipeline_value: number
+}
+
+export function takeSnapshot(): Snapshot {
+  const ov = overview()
+  const d = db()
+  const opps = d.prepare(`SELECT COUNT(*) AS n, IFNULL(SUM(estimated_value * probability / 100.0), 0) AS v FROM opportunities WHERE status = 'مفتوحة'`).get() as any
+  d.prepare(`
+    INSERT INTO impact_snapshots
+    (total_partners, activated, response_rate, workshops_held, avg_activation, open_opportunities, pipeline_value)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `).run(ov.totalPartners, ov.activated, ov.responseRate, ov.workshopsHeld, ov.avgActivation, opps.n, opps.v)
+  return d.prepare(`SELECT * FROM impact_snapshots ORDER BY id DESC LIMIT 1`).get() as Snapshot
+}
+
+export function listSnapshots(limit = 30): Snapshot[] {
+  return db().prepare(`SELECT * FROM impact_snapshots ORDER BY taken_at ASC LIMIT ?`).all(limit) as Snapshot[]
+}
+
 export function buildExecutiveReport(): ReportSummary {
   const ov = overview()
   const recs = generateRecommendations()

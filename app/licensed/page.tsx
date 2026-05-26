@@ -1,8 +1,10 @@
+import { requireAuth } from '@/lib/auth'
 import { getLicensed } from '@/lib/queries'
 
 export const dynamic = 'force-dynamic'
 
 export default function LicensedPage() {
+  requireAuth()
   const items = getLicensed()
   return (
     <div className="space-y-6">

@@ -1,9 +1,11 @@
+import { requireAuth } from '@/lib/auth'
 import { TEMPLATES, audienceFor } from '@/lib/outreach'
 import { OutreachClient } from './OutreachClient'
 
 export const dynamic = 'force-dynamic'
 
 export default function OutreachPage({ searchParams }: { searchParams: { t?: string } }) {
+  requireAuth()
   const selected = TEMPLATES.find(t => t.id === searchParams.t) || TEMPLATES[1]
   const audience = audienceFor(selected.id)
 

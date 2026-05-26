@@ -1,3 +1,4 @@
+import { requireAuth } from '@/lib/auth'
 import { getPartner, getContacts, getActivities, getKPIs } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -7,6 +8,7 @@ import { AddActivityForm } from './AddActivityForm'
 export const dynamic = 'force-dynamic'
 
 export default function PartnerDetail({ params }: { params: { id: string } }) {
+  requireAuth()
   const id = Number(params.id)
   const partner = getPartner(id)
   if (!partner) notFound()

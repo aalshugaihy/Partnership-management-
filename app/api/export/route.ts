@@ -1,8 +1,10 @@
+import { requireAuthApi } from '@/lib/auth'
 import { NextRequest, NextResponse } from 'next/server'
 import ExcelJS from 'exceljs'
 import { listPartners, getLicensed } from '@/lib/queries'
 
 export async function GET(req: NextRequest) {
+  const g = requireAuthApi(); if (g) return g;
   const type = req.nextUrl.searchParams.get('type') || 'partners'
   const wb = new ExcelJS.Workbook()
   wb.creator = 'منصة إدارة الشراكات'

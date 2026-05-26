@@ -1,8 +1,10 @@
+import { requireAuth } from '@/lib/auth'
 import { buildExecutiveReport } from '@/lib/queries'
 
 export const dynamic = 'force-dynamic'
 
 export default function ReportsPage() {
+  requireAuth()
   const r = buildExecutiveReport()
   const date = new Date(r.generatedAt).toLocaleString('ar-SA')
 
@@ -16,6 +18,7 @@ export default function ReportsPage() {
         <div className="flex gap-2">
           <a href="/api/reports?format=pdf" className="btn btn-primary">تنزيل PDF</a>
           <a href="/api/export?type=partners" className="btn btn-ghost border border-slate-200">تنزيل Excel</a>
+          <a href="/api/backup" className="btn btn-ghost border border-slate-200">نسخة احتياطية</a>
         </div>
       </header>
 

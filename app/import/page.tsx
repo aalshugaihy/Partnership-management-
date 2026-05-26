@@ -1,8 +1,10 @@
+import { requireAuth } from '@/lib/auth'
 import { ImportClient } from './ImportClient'
 
 export const dynamic = 'force-dynamic'
 
 export default function ImportPage() {
+  requireAuth()
   return (
     <div className="space-y-6">
       <header>

@@ -17,6 +17,7 @@ const links = [
 
 export function Sidebar() {
   const path = usePathname()
+  if (path === '/login') return null
   return (
     <aside className="w-64 bg-white border-l border-slate-200 p-5 flex flex-col gap-1 shrink-0">
       <div className="mb-6 px-2">
@@ -30,6 +31,16 @@ export function Sidebar() {
           <span>{l.label}</span>
         </Link>
       ))}
+      <button
+        onClick={async () => {
+          await fetch('/api/auth/logout', { method: 'POST' })
+          window.location.href = '/login'
+        }}
+        className="sidebar-link mt-4 text-rose-600 hover:bg-rose-50"
+      >
+        <span className="text-lg leading-none">↩</span>
+        <span>تسجيل الخروج</span>
+      </button>
       <div className="mt-auto pt-4 text-xs text-slate-400 px-2">
         الإصدار 1.0 · {new Date().getFullYear()}
       </div>
