@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    container_name: partnership-management
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin1234}
+      - SESSION_SECRET=${SESSION_SECRET:-please-change-in-production-min-32-chars}
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  app-data:

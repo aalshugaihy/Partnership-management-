@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'claude/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      ADMIN_PASSWORD: test-password-1234
+      SESSION_SECRET: ci-secret-key-for-tests-only-32chars
+      NODE_ENV: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check & Build
+        run: npx next build
+
+      - name: Seed
+        run: npm run seed
+
+      - name: Smoke test
+        run: |
+          (npx next start -p 3000 -H 0.0.0.0 &) && sleep 6
+          curl -fs http://localhost:3000/api/health
+          curl -fs -c /tmp/c.txt -o /dev/null -X POST http://localhost:3000/api/auth/login \
+            -H "Content-Type: application/json" \
+            -d '{"email":"admin@local","password":"test-password-1234"}'
+          for path in / /partners /pipeline /opportunities /workshops /map /kpi /outreach /recommendations /reports /import /licensed /users /audit; do
+            code=$(curl -s -b /tmp/c.txt -o /dev/null -w "%{http_code}" http://localhost:3000$path)
+            echo "$path → $code"
+            [ "$code" = "200" ] || exit 1
+          done

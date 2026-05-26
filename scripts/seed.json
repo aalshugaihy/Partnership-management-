@@ -1,0 +1,4493 @@
+{
+  "partners": [
+    {
+      "id": 1,
+      "company": "HERE TECHNOLOGIES",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "   2:30PM-4:00PM",
+      "workshop_date": "2025-01-21T00:00:00",
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد +تم الحضور",
+      "contacts": [
+        {
+          "name": "Mike Nefkens",
+          "title": "Chief Executive Officer, HERE ",
+          "linkedin": "https://www.linkedin.com/in/mike-nefkens/",
+          "email": "mike.nefkens@here.com"
+        },
+        {
+          "name": "Weld-Ali, abdelraouf",
+          "title": null,
+          "linkedin": null,
+          "email": "abdelraouf.weld-ali@here.com"
+        },
+        {
+          "name": "Al-Qaisi, Mustafa",
+          "title": null,
+          "linkedin": null,
+          "email": "mustafa.al-qaisi@here.com"
+        },
+        {
+          "name": "Gino Ferru",
+          "title": "SVP and General Manager EMEA, HERE Technologies",
+          "linkedin": null,
+          "email": "gino.ferru@here.com"
+        },
+        {
+          "name": "Sanjay Kumar Boddhu, Ph.D. ",
+          "title": "Head of Autonomous Driving Map Automation ",
+          "linkedin": "https://www.linkedin.com/in/sanjayboddhu/",
+          "email": "sanjaykumar.boddhu@here.com"
+        }
+      ],
+      "representative": {
+        "name": "عبدالرؤوف ولدعل",
+        "phone": 971567480250,
+        "email": "abdelraouf.weld-ali@here.com"
+      }
+    },
+    {
+      "id": 2,
+      "company": "Tom Tom",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": "لا",
+      "platform": "لا",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "لم يتم الحضور",
+      "notes": "N/A",
+      "workshop_time": "12:30PM-1:30PM",
+      "workshop_date": "1/29/2025",
+      "status": null,
+      "remarks": "رفض حضور ورشة العمل",
+      "contacts": [
+        {
+          "name": "Michael Harrell",
+          "title": "SVP Engineering Maps",
+          "linkedin": "https://www.linkedin.com/in/michael-harrell-tomtom/",
+          "email": "michael.harrell@tomtom.com"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "company": "APPLE MAPS",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Jake McKenna",
+          "title": "Product Strategy & Partnerships, Apple Maps",
+          "linkedin": "https://www.linkedin.com/in/jake-mckenna-a4b93a3/",
+          "email": "jake.mckenna@apple.com"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "company": "Mapbox",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Alex Barth",
+          "title": "VP, Automotive",
+          "linkedin": "https://www.linkedin.com/in/lxbarth/",
+          "email": "alex@mapbox.com"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "company": "Dynamic Map Platform (DMP)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "ترغب بالتمديد +تم الحضور",
+      "contacts": [
+        {
+          "name": "Dr. Ali Syed",
+          "title": "General Manager, Middle East",
+          "linkedin": null,
+          "email": "asyed@dmp-maps.com"
+        },
+        {
+          "name": "Shuichi Yoshimura",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/shuichi-yoshimura-68b542103/",
+          "email": "yoshimura.shuichi@dynamic-maps.co.jp"
+        }
+      ],
+      "representative": {
+        "name": "Dr. Ali Syed",
+        "phone": " 55 0534829",
+        "email": "asyed@dmp-maps.com"
+      }
+    },
+    {
+      "id": 6,
+      "company": "Hud Hud",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "1:00PM-2:30PM",
+      "workshop_date": "2025-01-21T00:00:00",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "Faisal Alhomaidhi",
+          "title": "CEO",
+          "linkedin": "http://linkedin.com/in/faisal-alhomaidhi-681bb711",
+          "email": "falhomaidhi@hudhud.sa"
+        },
+        {
+          "name": "Ali",
+          "title": " ",
+          "linkedin": null,
+          "email": "ali@hudhud.sa"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "company": "Yango",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Sergej Loiter",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/sergejloiter",
+          "email": "sloiter@yango.com"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "company": "Yandex",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "1:00PM-2:30PM ",
+      "workshop_date": "2025-01-22T00:00:00",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "Alexey Smirnov",
+          "title": "Director, Government Affairs & Public Policy, International Business Development",
+          "linkedin": "https://ru.linkedin.com/in/smiralexey",
+          "email": "alexeysmirnov@yandex-team.ru"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "company": "Huawei (Petal Maps)",
+      "invite_sent": false,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "XiaoQing Hu",
+          "title": "GM, Maps Business Department, Huawei Consumer Business Group",
+          "linkedin": "https://www.linkedin.com/in/xiaoqing-hu-8650a640/",
+          "email": "xiaoqing.hu@huawei.com"
+        },
+        {
+          "name": "Rizwan Razaq",
+          "title": "Chief Technology Officer ",
+          "linkedin": "https://www.linkedin.com/in/rizwan-razaq-709b85a5/",
+          "email": "rizwan.razaq@huawei.com"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "company": "Lucid Motors",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Peter Rawlinson",
+          "title": "CEO and CTO",
+          "linkedin": "https://www.linkedin.com/in/peter-rawlinson-lucid/",
+          "email": "peterrawlinson@atieva.com"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "company": "Google",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "لا",
+      "platform": "لا",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "تم الحضور ",
+      "notes": "N/A",
+      "workshop_time": "12:30PM-2:00PM",
+      "workshop_date": "1/28/2025",
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد +تم الحضور",
+      "contacts": [
+        {
+          "name": "Miriam Daniel",
+          "title": "VP & GM Google Maps for Consumers",
+          "linkedin": "https://www.linkedin.com/in/miriam-daniel-38596b/",
+          "email": "miriamdaniel@google.com"
+        }
+      ],
+      "representative": {
+        "name": "Sarah",
+        "phone": null,
+        "email": "sralhusseini@google.com"
+      }
+    },
+    {
+      "id": 12,
+      "company": "Ceer",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "9:30AM-11:00AM",
+      "workshop_date": "2025-01-22T00:00:00",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "ibrahiem basudan",
+          "title": "CEER team",
+          "linkedin": null,
+          "email": "ibasudan@ceermotors.com"
+        },
+        {
+          "name": "Omar Altuyeam",
+          "title": null,
+          "linkedin": null,
+          "email": "oaltuwaym@ceermotors.com"
+        },
+        {
+          "name": "Jim DeLuca",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/jim-deluca-04978816/",
+          "email": "jdeluca@ceermotors.com"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "company": "GM",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "لا ",
+      "platform": "مسجل",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "2:00PM-3:30PM",
+      "workshop_date": "2025-01-23T00:00:00",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "Shilpan Amin",
+          "title": "Senior Vice President and President of GM International",
+          "linkedin": "http://linkedin.com/in/mary-barra",
+          "email": "shilpan.amin@gm.com"
+        },
+        {
+          "name": "Jack Uppal",
+          "title": "President & Managing Director",
+          "linkedin": null,
+          "email": "jack.uppal@gm.com"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "company": "NSG",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "9:30AM-11:00AM",
+      "workshop_date": "1/27/2025",
+      "status": null,
+      "remarks": "ترغب بالتمديد +تم الحضور+ ترغب بالتمديد بعد تاريخ5/2",
+      "contacts": [
+        {
+          "name": "Jason Andrews",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/jason-andrews-061a064a/",
+          "email": "jandrews@neospacegroup.com"
+        },
+        {
+          "name": "Amru Alamoudi",
+          "title": null,
+          "linkedin": null,
+          "email": "aalamoudi@neospacegroup.com"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "company": "NHC",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "مسجل",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "محمد باضريس",
+          "title": "مدير الشراكات الاستراتيجية",
+          "linkedin": null,
+          "email": "m.badhurais@nhc.sa"
+        },
+        {
+          "name": "صالح الحزاب",
+          "title": " ",
+          "linkedin": "http://linkedin.com/in/mohammad-albuty-1b11946",
+          "email": "s.alhezab@nhc.sa"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "company": "Nuro",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Jiajun Zhu",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/jiajun/",
+          "email": "jiajun@nuro.ai"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "company": "Momenta",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Xudong Cao",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/xudong-cao-19228927/",
+          "email": "xudong@momenta.ai"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "company": "Wayve",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Alex Kendall",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/alexgkendall/",
+          "email": "alex@wayve.ai"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "company": "Phantom AI",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Hyunggi Cho",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/hyunggi-cho-63650823/",
+          "email": "hcho@phantom.ai"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "company": "Apollo mapping",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "لاترغب الشركة في الدخول بالنبادرة",
+      "contacts": [
+        {
+          "name": "Brock Adam McCarty",
+          "title": "The Map Wizard",
+          "linkedin": "https://www.linkedin.com/in/brock-adam-mccarty-728b662/",
+          "email": "brock@apollomapping.com"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "company": "Advanced Aerial Mapping Services",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": null,
+      "workshop_time": "2:30PM-3:30PM",
+      "workshop_date": "1/29/2025",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": "Mohammed Usman",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/usman-khan-2106a312/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+          "email": "m.usman@aams-sa.com"
+        }
+      ],
+      "representative": {
+        "name": "Hassan Bawazir",
+        "phone": 544371555,
+        "email": null
+      }
+    },
+    {
+      "id": 18,
+      "company": "Navinfo",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "لا",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "خلل تقني ",
+      "contacts": [
+        {
+          "name": "Patrick Cheng",
+          "title": "CEO",
+          "linkedin": "https://www.linkedin.com/in/patrick-cheng-454213b/",
+          "email": "patrick.cheng@navinfo.com"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "company": "Woven by Toyota",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Jan Falkowski",
+          "title": "Director of Engineering, Mapping & Road Intelligence, AD/ADAS",
+          "linkedin": "https://www.linkedin.com/in/janfalkowski/",
+          "email": "jan.falkowski@woven.toyota"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "company": "Zenrin",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Shoshin Yamashiro",
+          "title": "Business Development Manager",
+          "linkedin": "https://www.linkedin.com/in/shoshin-yamashiro-51189528/",
+          "email": "shoshiny@zenrin.co.jp"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "company": "Oxa",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "رفض حضور ورشة العمل",
+      "contacts": [
+        {
+          "name": "Paul Newman",
+          "title": "CTO",
+          "linkedin": "https://www.linkedin.com/in/paul-newman-13457b15b/",
+          "email": "paul.newman@oxa.tech\npaul@oxa.tech"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "company": "moove.ai",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Justin Collins",
+          "title": "CTO",
+          "linkedin": "https://www.linkedin.com/in/justin-collins-74329463/",
+          "email": "justin@moove.ai"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "company": "Ouster",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Steve Kwong",
+          "title": "VP Revenue Operations & Global Enablement",
+          "linkedin": "https://www.linkedin.com/in/steve-kwong-5141412/",
+          "email": "steve.kwong@ouster.com"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "company": "Bosch",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Carsten Hasberg",
+          "title": "Chief Project Manager - Mapping and Localization",
+          "linkedin": "https://www.linkedin.com/in/carsten-hasberg-65b134221/",
+          "email": "carsten.hasberg@bosch.com"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "company": "GeoTecl",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@geotechoverseas.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "company": "Aramco",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "webmaster2@aramco.com"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "company": "SABIC",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "investors@sabic.com"
+        },
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "IR@SABIC.com"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "company": "Yanbu Cement Co.",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "customercare@yanbucement.com"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "company": "AMAALA",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "contact@amaala.com"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "company": "Qiddiya",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@qiddiya.com"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "company": "Maaden",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@maaden.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "company": "STC",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "company": "Mobily",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "IRD@mobily.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "company": "Zain",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "company": "Aqua power (ACWA Power)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "IR@acwapower.com "
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "company": "Saudi electric company",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "company": "National Water Company (NWC)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "innovation@nwc.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "company": "Jarir Marketing Co.",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "care@jarir.com"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "company": "Alhokair Group",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@alhokair.com"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "company": "NEOM",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "media@NEOM.com"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "company": "ROSHN",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "customercare@roshn.sa"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "company": "SAR",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "customerservices@sar.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "company": "BAHRI",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "company": "Al Marai",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "investor.relations@almarai.com"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "company": "Savola",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Share@savola.com"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "company": "Saudi Dairy & Foodstuff Company (SADAFCO)",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "company": "National Agriculture Development Company (NADEC)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@nadec.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "company": "Arabian Agricultural Services Company (ARASCO)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@arasco.com"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "company": "National Aquaculture Group (NAQUA)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "queries@naqua.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "company": "Hail Agriculture Development Co. (HADCO)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@hail.ae"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "company": "Schlumberger",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "company": "Baker Hughes",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "company": "Halliburton",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website "
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "company": "SIPCHEM (Sahara International Petrochemical Company)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "marketing@sipchem.com"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "company": "Petro Rabigh",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Investor.Relations@petrorabigh.com"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "company": "Yansab (Yanbu National Petrochemical Company)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "shares@yansab.sabic.com"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "company": "Aldrees",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@aldrees.com"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "company": "Tasnee",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Through website"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "company": "Dar Al Arkan",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@alarkan.com"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "company": "Marafiq",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@saudi-marafiq.com"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "company": "Alqotr Surveying Company",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@alqotr.sa\nbilal@alqotr.sa"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "company": "Engineering and Research International- Engineering  Consultants (ERI)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "survey-cp@erigeosciences.com"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "company": "FALCON VISUALIZATION LTD. CO. (Falconviz)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "تم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "khaled.abdelgawad@falconviz.com\ninfo@falconviz.com"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "company": "Gravity",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "alhamlan@gravitygis.com"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "company": "Geotech",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": true,
+      "extension_request": "لا ",
+      "platform": "مسجل",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "تم الحضور ",
+      "notes": "N/A",
+      "workshop_time": "2:00PM-3:30PM",
+      "workshop_date": "1/28/2025",
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@geotechoverseas.com.sa\nY.batais@gt.com.sa\nA.dhalaan@gt.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "company": "IGNFI",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": "1:30PM-2:30PM",
+      "workshop_date": "1/29/2025",
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "gchaudagne@ignfi.fr\nnalsahhaf@ignfi.fr"
+        }
+      ],
+      "representative": {
+        "name": "Dr Nasr Al Sahhaf ",
+        "phone": 966540540008,
+        "email": null
+      }
+    },
+    {
+      "id": 67,
+      "company": "Atheeb Intergraph Saudi Company",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "gchaudagne@ignfi.fr\nnalsahhaf@ignfi.fr"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "company": "Ordnance Survey",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "juliet.ezechie@os.uk "
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "company": "Engineering & Technology Services Company (TAQNIA ETS)",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "shalamri@taqnia.com\nHaljohani@taqnia.com"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "company": "IMAO",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "bertrand.daudre@imao-fr.com"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "company": "Esri Saudi Arabia",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "akram.jabbouli@esrisaudiarabia.com"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "company": "Alkan",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "haitham.niazy@alkancit.com"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "company": "Deloitte",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "https://www2.deloitte.com"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "company": "PWC",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "لاترغب الشركة في الدخول بالمبادرة",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Dalia.arnab@strategyand.pwc.com"
+        }
+      ],
+      "representative": {
+        "name": "Dalia Arnab",
+        "phone": null,
+        "email": "dalia.arnab@strategyand.pwc.com"
+      }
+    },
+    {
+      "id": 75,
+      "company": "EY",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "https://www.ey.com/"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "company": "KPMG",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "https://home.kpmg"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "company": "Dar Alriyadh",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "11:00AM-12:00PM",
+      "workshop_date": "1/29/2025",
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@daralriyadh.com "
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "company": "GPC-ICT",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": "1:00PM-2:30PM",
+      "workshop_date": "1/27/2025",
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "mohamed.abuzaid@gpcict.com"
+        }
+      ],
+      "representative": {
+        "name": "نورة عبد الدائم\nمحمد أبوزيد",
+        "phone": "0597574811\n0506659164",
+        "email": "norah.abduldaem@gpcict.com\nMohamed.abuzaid@gpcict.com"
+      }
+    },
+    {
+      "id": 79,
+      "company": "ESRI",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "mark.sorensen@gpc-gis.ae "
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "company": "Hudhud",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Naif@hudhud.sa"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "company": "Riyadh Geotechnique & foundations",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "corporate@erigeosciences.com"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "company": "Zain drone",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "DRONE@ZAIN.COM"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "company": "Twozan surveys",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@twozansurveys.com"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "company": "ArtArabia UAV",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "sales@artrabia.com"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "company": "Al-Osaimi Geotechnical Company",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@osaimiengineering.com"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "company": "Geotechnical & Environmental Co. Ltd",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info.saudiarabia@applusgeco.com"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "company": "Bullivant-arabia",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "مسجل ",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "بإنتظار الموافقة + تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "admin@bullivantarabia.com"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "company": "Artifical Intelligence Global",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@aigcom.com"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "company": "Air Information Solutions Company UAV",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "contact@airpix.in"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "company": "Omraniyoun",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@omraniyoun.com"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "company": "V3 Middle East",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@v3international.com"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "company": "Genesys International Corporation Ltd,",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "sales@igenesys.com"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "company": "Marks Survey Office (MSO)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@marksurvey.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "company": "Utility survey co",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Info@uts-sa.com"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "company": "Gulf Consult",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "mail@gckuwait.com"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "company": "Dynamic",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "خلل تقني ",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": " Info@dsc.sa"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "company": "Saudi geological survey",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@sgs.gov.sa"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "company": "Aerodyne",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@aerodyne.group"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "company": "Najabah",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@najabahco.com"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "company": "WSP",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "https://www.wsp.com/en-sa/contact-us/send-a-message"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "company": "Saudi Geophysical",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Business development coordinator",
+          "title": null,
+          "linkedin": null,
+          "email": "info@saudigeophysical.com"
+        },
+        {
+          "name": "Mohammed Al-Babtain",
+          "title": null,
+          "linkedin": null,
+          "email": "mohammed.albabtain@saudigeophysical.com"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "company": "Trimble",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "pr@trimble.com"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "company": "HERE",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "marketing@here.com"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "company": "AECOM",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "jeddah@aecom.com"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "company": "Airbus",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "guillaume.steuer@airbus.com"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "company": "BAE Systems",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "saudi.arabia@baesystems.com"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "company": "Capella Space",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@capellaspace.com"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "company": "Carlson Software Inc",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "emea@carlsonsw.com"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "company": "Langan",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "gleventis@langan.com"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "company": "MichaelBaker",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@@mbakerintl.com"
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "company": "RMSI",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم التقديم على الإيميل  ",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "india@rmsi.com"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "company": "Schneider",
+      "invite_sent": false,
+      "rfi_sent": true,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "gissupport@schneidercorp.com"
+        },
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "support@schneiderGIS.com"
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "company": "Orbits Engineering",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@orbitseng.com"
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "company": "ACES",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "acesriyadh@aces-int.com"
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "company": "Environmental Support Consulting Office",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Info@envsup.com"
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "company": "Ebdaasa",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@ebdaasa.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "company": "AJC Consult",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@jazzar-consult.com"
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "company": "Mckinsey & Company",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@support.mckinsey.com"
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "company": "Nusail Engineering",
+      "invite_sent": true,
+      "rfi_sent": false,
+      "initial_receipt": false,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@nusail.co.uk"
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "company": "Applus+",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@applus.com"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "company": "Mapdev",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "riyadh.geco@applusgeco.com"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "company": "Advanced Systems & Technologies (ASMA)",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "saif@saudi-asma.com"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "company": "ECURS",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "malaz.babiker@ecu-rs.com"
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "company": "Planetek",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "zotti@planetek.it"
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "company": "شركة التواصل الرقمية للاتصالات",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "owner@altawasol.app"
+        }
+      ]
+    },
+    {
+      "id": 126,
+      "company": "D-Orbit",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "jonathan.firth@dorbit.space"
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "company": "Tecsolutiongroup",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": "__",
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "boubcher@tecsolutiongroup.com"
+        }
+      ],
+      "representative": {
+        "name": "م. عبدالرزاق بوبشير",
+        "phone": null,
+        "email": "boubcher@tecsolutiongroup.com"
+      }
+    },
+    {
+      "id": 128,
+      "company": "شركة الاسشتعار والمساحة للاستشارات الجيومكانية",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": "__",
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "sami@alisteshaar.com"
+        }
+      ],
+      "representative": {
+        "name": "SAMI AL SAEID",
+        "phone": 550111718,
+        "email": "sami@alisteshaar.com"
+      }
+    },
+    {
+      "id": 129,
+      "company": "مجموعة الأنظمة الجغرافية لتقنية المعلومات",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "nasser@geosystems-me.com"
+        }
+      ]
+    },
+    {
+      "id": 130,
+      "company": "شركة قمة الهرم",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@qmtalhrm.com"
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "company": "شركة حلول عذيب المتكاملة للتقنيات",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "faiz@atheeb.sa"
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "company": "شركة الاتصالات المتنقلة السعودية",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "لا",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "ali.alqahtani@sa.zain.com"
+        }
+      ],
+      "representative": {
+        "name": "Mohammad Redhaei ",
+        "phone": null,
+        "email": "mohammad.redhaei@zain.com"
+      }
+    },
+    {
+      "id": 133,
+      "company": "شركة التطوير والتقنية للمساحة",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "info@ttgeo.sa"
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "company": "igenesys",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "2:30PM-4:00PM",
+      "workshop_date": "2025-01-22T00:00:00",
+      "status": "تم الرد ",
+      "remarks": "خلل تقني + تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "hemant.agrawal@igenesys.com"
+        }
+      ],
+      "representative": {
+        "name": "Hemant",
+        "phone": 919810265662,
+        "email": "Garvita.Kaushik@igenesys.com"
+      }
+    },
+    {
+      "id": 135,
+      "company": "GEOSCAN",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "11:00AM-12:30PM",
+      "workshop_date": "2025-01-23T00:00:00",
+      "status": null,
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": "Mik",
+          "title": null,
+          "linkedin": null,
+          "email": "m.ivanov@geoscan.ru"
+        },
+        {
+          "name": "p.stepanov",
+          "title": null,
+          "linkedin": null,
+          "email": "p.stepanov@geoscan.aero"
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "company": "Terra-drone",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": false,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Mahmoud Attia",
+          "title": "Technical & Business Director",
+          "linkedin": null,
+          "email": "mahmoud@terra-drone.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 137,
+      "company": "Twozan Surveys",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": "Sheeraz Akhtar",
+          "title": "Business Development Leader",
+          "linkedin": null,
+          "email": "sheeraz.akhtar@twozansurveys.com"
+        }
+      ],
+      "representative": {
+        "name": "Sheeraz Akhtar",
+        "phone": 594319786,
+        "email": "sheeraz.akhtar@twozansurveys.com"
+      }
+    },
+    {
+      "id": 138,
+      "company": "FEDS",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": null,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Nathalie Kassab",
+          "title": "Chief Commercial Officer",
+          "linkedin": null,
+          "email": "nathalie@feds.ae"
+        }
+      ]
+    },
+    {
+      "id": 139,
+      "company": "Wakeeb",
+      "invite_sent": true,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": "Khaled Alshammrani",
+          "title": "Consultant",
+          "linkedin": null,
+          "email": "k.alshamrani@wakeb.tech"
+        },
+        {
+          "name": "Hamad Almunif",
+          "title": "CEO",
+          "linkedin": null,
+          "email": "HAMAD@WAKEB.tech"
+        }
+      ],
+      "representative": {
+        "name": "خالد علي الشمراني",
+        "phone": 538822115,
+        "email": "k.alshamrani@wakeb.tech"
+      }
+    },
+    {
+      "id": 140,
+      "company": "Geomatex",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "hbakr@geomatex.com"
+        }
+      ],
+      "representative": {
+        "name": "Haitham Bakr ",
+        "phone": null,
+        "email": "hbakr@geomatex.com"
+      }
+    },
+    {
+      "id": 141,
+      "company": "OXA.Tech",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "لا",
+      "rfi_delivery": "لا",
+      "workshop_attendance": "لم يتم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "لم يجدوا رابط الموقع وتم المعالجة  +لم يتم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Angela.burt@oxa.tech\npaul@oxa.tech"
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "company": "woolpert",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم ",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "3:30PM-5:00PM",
+      "workshop_date": "2025-01-23T00:00:00",
+      "status": "تم الرد ",
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "chris.tanner@woolpert.com"
+        }
+      ],
+      "representative": {
+        "name": "Chris Tanner",
+        "phone": " +27 83 441 9944\n +971 58 270 5955   ",
+        "email": "chris.tanner@woolpert.com"
+      }
+    },
+    {
+      "id": 143,
+      "company": "Teledyne",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم  يتم الحضور ",
+      "notes": "تم رفض الدعوة من قبل الشركة ",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": "تم الرد ",
+      "remarks": "خلل تقني + لم يتم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Anas.Alhabian@Teledyne.com"
+        }
+      ]
+    },
+    {
+      "id": 144,
+      "company": "CEER",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": true,
+      "response_received": true,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم الحضور ",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "ibasudan@ceermotors.com"
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "company": "CCC",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "لم يتم حضور الفريق المختص من قبل الشركة ",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "لم يتم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": "Associate Director ",
+          "linkedin": null,
+          "email": "Mohammed.rashed@ccc.sa.com"
+        }
+      ],
+      "representative": {
+        "name": "Mohammed Rashed ",
+        "phone": 966501217210,
+        "email": null
+      }
+    },
+    {
+      "id": 146,
+      "company": "Real Estate Registry",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "aalsaleh@rer.sa"
+        }
+      ],
+      "representative": {
+        "name": "Abdullatif Alsaleh",
+        "phone": null,
+        "email": "aalsaleh@rer.sa"
+      }
+    },
+    {
+      "id": 147,
+      "company": "gto.com",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "تم الحضور",
+      "notes": "N/A",
+      "workshop_time": "3:30PM-4:30PM",
+      "workshop_date": "1/29/2025",
+      "status": null,
+      "remarks": "ترغب بالتمديد+ تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "albarraq@gto.com.sa"
+        }
+      ]
+    },
+    {
+      "id": 148,
+      "company": "zaintech",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": "نعم",
+      "platform": "مسجل",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "لم يتم الحضور ",
+      "notes": "N/A",
+      "workshop_time": "9:30AM-11:00AM",
+      "workshop_date": "2025-01-23T00:00:00",
+      "status": null,
+      "remarks": "ترغب بالتمديد + لم يتم حضور الفريق المختص من قبلهم ",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Mohammad.Redhaei@zain.com"
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "company": "pony.ai",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": null,
+      "platform": "لا",
+      "rfi_delivery": null,
+      "workshop_attendance": "لم يتم الحضور",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "لم تحضر الشركة ",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "Xinghe@pony.ai"
+        }
+      ]
+    },
+    {
+      "id": 152,
+      "company": "AI Driver (We ride)",
+      "invite_sent": null,
+      "rfi_sent": true,
+      "initial_receipt": null,
+      "response_received": true,
+      "extension_request": " ",
+      "platform": "مسجل ",
+      "rfi_delivery": "نعم",
+      "workshop_attendance": "تم الحضور ",
+      "notes": "N/A",
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": "تم الحضور",
+      "contacts": [
+        {
+          "name": null,
+          "title": null,
+          "linkedin": null,
+          "email": "hb@aidriverksa.com"
+        }
+      ],
+      "representative": {
+        "name": "هشام بكر",
+        "phone": 550007430,
+        "email": null
+      }
+    },
+    {
+      "id": 153,
+      "company": "Yellow Scan",
+      "invite_sent": null,
+      "rfi_sent": null,
+      "initial_receipt": null,
+      "response_received": null,
+      "extension_request": null,
+      "platform": null,
+      "rfi_delivery": null,
+      "workshop_attendance": null,
+      "notes": null,
+      "workshop_time": null,
+      "workshop_date": null,
+      "status": null,
+      "remarks": null,
+      "contacts": [
+        {
+          "name": "Fayssl Tiriaki",
+          "title": "Business Developmment Manager",
+          "linkedin": null,
+          "email": "fayssal.tiriaki@yellowscan.com"
+        }
+      ]
+    }
+  ],
+  "licensed_companies": [
+    {
+      "id": 1,
+      "name": "مؤسسة شاهين محترف لطائرات الدرونز",
+      "phone": 533273372,
+      "email": "shaaheenksa@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "شركة نواة الحلول للاستشارات الهندسية",
+      "phone": 555520272,
+      "email": "Mmahmoud@coresolutions.sa"
+    },
+    {
+      "id": 3,
+      "name": "مؤسسة بيانات المسح لأعمال نظم المعلومات الجغرافية",
+      "phone": 556083000,
+      "email": "mohamedd212009@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "شركة حلول المعلومات الجوية للطائرات بدون طيار",
+      "phone": 554114333,
+      "email": "1alenjaz@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "شركة القطر للاستشارات المهنية",
+      "phone": 508144021,
+      "email": "info@alqotr.sa"
+    },
+    {
+      "id": 6,
+      "name": "شركة جيوتك لما وراء البحار لهندسة المشاريع",
+      "phone": 566689844,
+      "email": "ralanazi@geotechoverseas.com.sa"
+    },
+    {
+      "id": 7,
+      "name": "مؤسسة فيجن للطائرات بدون طيار",
+      "phone": 599937706,
+      "email": "a.alharbi@visioncapture.sa"
+    },
+    {
+      "id": 8,
+      "name": "الشركة الوطنية لخدمات التسجيل العيني للعقار",
+      "phone": 530008966,
+      "email": "oalrasheed@rer.sa"
+    },
+    {
+      "id": 9,
+      "name": "مؤسسة توب مارين للاعمال نظم المعلومات الجغرافية",
+      "phone": 539000600,
+      "email": "salem@massamk.com"
+    },
+    {
+      "id": 10,
+      "name": "شركة الخدمات الهندسية والتقنية",
+      "phone": 592610882,
+      "email": "agalajmi@taqnia.com"
+    },
+    {
+      "id": 11,
+      "name": "مؤسسة مجاز لتقنية المعلومات",
+      "phone": 505922411,
+      "email": "khalid@corridor-technology.com"
+    },
+    {
+      "id": 12,
+      "name": "الشركة الوطنية لخدمات التسجيل العيني للعقار",
+      "phone": 530008966,
+      "email": "oalrasheed@rer.sa"
+    },
+    {
+      "id": 13,
+      "name": "شركة الخرائط العربية للتصوير الجوى",
+      "phone": 593900432,
+      "email": "sobhi@arabianmaps.com.sa"
+    },
+    {
+      "id": 14,
+      "name": "شركة افاق البيئه المحدوده",
+      "phone": 563800001,
+      "email": "amin@eh.net.sa"
+    },
+    {
+      "id": 15,
+      "name": "مكتب عبدالله سعود عبدالعزيز العبدالمغني للمساحة الأرضية",
+      "phone": 544441298,
+      "email": "Asamso@hotmail.com"
+    },
+    {
+      "id": 16,
+      "name": "مكتب مجتبى محمد علي المهناء للمساحة الأرضية",
+      "phone": 531123295,
+      "email": "almuhanna.office@gmail.com"
+    },
+    {
+      "id": 17,
+      "name": "مسار الشمال للاستشارات الهندسية",
+      "phone": 564920953,
+      "email": "eng.mu112@gmail.com"
+    },
+    {
+      "id": 18,
+      "name": "شركة عذيب إنترجراف السعوديه",
+      "phone": 555077429,
+      "email": "n.alaskar@intergraph.sa"
+    },
+    {
+      "id": 19,
+      "name": "شركة ابتكارات فني للمساحة الارضية",
+      "phone": 558767411,
+      "email": "d.911dd@gmail.com"
+    },
+    {
+      "id": 20,
+      "name": "شركة محترفو التخطيط للمساحة الأرضية",
+      "phone": 554509092,
+      "email": "pr.ps.23sa@gmail.com"
+    },
+    {
+      "id": 21,
+      "name": "مكتب مقدار للمسح والاستكشاف الجيولوجي",
+      "phone": 505766394,
+      "email": "abushaker994@gmail.com"
+    },
+    {
+      "id": 22,
+      "name": "شركة سورتك انترناشيونال لمتد",
+      "phone": 581999293,
+      "email": "m.mjr2009@gmail.com"
+    },
+    {
+      "id": 23,
+      "name": "مكتب ياسر عبدالعزيز ابراهيم الحقيل للاستشارات الهندسية",
+      "phone": 501040004,
+      "email": "offic.yasser@gmail.com"
+    },
+    {
+      "id": 24,
+      "name": "شركة عبدالرحمن صالح الشوشان للمساحة الأرضية",
+      "phone": 546666773,
+      "email": "asaleh@alshoshan.com"
+    },
+    {
+      "id": 25,
+      "name": "مكتب سما الابداع للمساحة الارضية",
+      "phone": 560006130,
+      "email": "mmdm-511@hotmail.com"
+    },
+    {
+      "id": 26,
+      "name": "مكتب الواقع للمساحه الارضيه",
+      "phone": 500032034,
+      "email": "saadk07595@gmail.com"
+    },
+    {
+      "id": 27,
+      "name": "مكتب محمد بن علي بن سليمان الشراري للمساحة الأرضية",
+      "phone": 504970264,
+      "email": "moh.alioffic@gmail.com"
+    },
+    {
+      "id": 28,
+      "name": "شركة مصفاة الذهب السعودية",
+      "phone": 551639510,
+      "email": "captiansaadasa@yahoo.com"
+    },
+    {
+      "id": 29,
+      "name": "خطوط الطول للمساحة الأرضية",
+      "phone": 554506660,
+      "email": "aliz5111@hotmail.com"
+    },
+    {
+      "id": 30,
+      "name": "مؤسسة دلتا المبدعين للمساحة الأرضية",
+      "phone": 550446660,
+      "email": "s60aaaad@gmail.com"
+    },
+    {
+      "id": 31,
+      "name": "مكتب أحمد محمد علي المزيني للمساحة الأرضية",
+      "phone": 562827676,
+      "email": "almuzini961@gmail.com"
+    },
+    {
+      "id": 32,
+      "name": "مكتب فهد بن عبدالله بن علي القرعاوي للمساحة",
+      "phone": 553637000,
+      "email": "fahadg1378@gmail.com"
+    },
+    {
+      "id": 33,
+      "name": "شركة الاسشتعار والمساحة للاستشارات الجيومكانية",
+      "phone": 555281494,
+      "email": "sami@alisteshaar.com"
+    },
+    {
+      "id": 34,
+      "name": "شركة خالد نائف محمد الحربي للمساحة",
+      "phone": 556331434,
+      "email": "nagekase2@gmail.com"
+    },
+    {
+      "id": 35,
+      "name": "شركة خبير المساحة للمساحة الارضية",
+      "phone": 559866210,
+      "email": "Rayanx12341234@gmail.com"
+    },
+    {
+      "id": 36,
+      "name": "مكتب الإتجاهات المحورية لهندسة المشاريع",
+      "phone": 500877773,
+      "email": "osamah06@gmail.com"
+    },
+    {
+      "id": 37,
+      "name": "مكتب عبدالعزيز حسن حبيب للمساحة الأرضية",
+      "phone": 555302220,
+      "email": "ahhabeeb0@gmail.com"
+    },
+    {
+      "id": 38,
+      "name": "مكتب جاذبية للاستشارت الهندسية",
+      "phone": 556688364,
+      "email": "alhamlan@gravitygis.com"
+    },
+    {
+      "id": 39,
+      "name": "شركة الخندق لأنشطة المساحة",
+      "phone": 505316329,
+      "email": "saud.5680@hotmail.com"
+    },
+    {
+      "id": 40,
+      "name": "شركة أسبار للخدمات البيئية",
+      "phone": 555442676,
+      "email": "ALIALZAID@T-EXPERTS.COM"
+    },
+    {
+      "id": 41,
+      "name": "شركة مصفاة الذهب السعودية",
+      "phone": 551639510,
+      "email": "captiansaadasa@yahoo.com"
+    },
+    {
+      "id": 42,
+      "name": "شركة حلول المناخ العالمية",
+      "phone": 505446734,
+      "email": "Abdulelah.Khalid@imar.com.sa"
+    },
+    {
+      "id": 43,
+      "name": "شركة القطر للمساحة الأرضية",
+      "phone": 504571666,
+      "email": "info@alqotr.sa"
+    },
+    {
+      "id": 44,
+      "name": "شركة نجوم الرياض",
+      "phone": 544448892,
+      "email": "info@riyadhstars.sa"
+    },
+    {
+      "id": 45,
+      "name": "مكتب محمد عبدالرحمن عبدالعزيز بن نفيسه للمساحه الارضيه",
+      "phone": 554487882,
+      "email": "m.a.a.a4@hotmail.com"
+    },
+    {
+      "id": 46,
+      "name": "شركة المتحدة لخدمات تكنولوجيا الطيران",
+      "phone": 540308855,
+      "email": "reda@unitedats.com"
+    },
+    {
+      "id": 47,
+      "name": "مجموعة الأنظمة الجغرافية لتقنية المعلومات",
+      "phone": 500081583,
+      "email": "nasser@geosystems-me.com"
+    },
+    {
+      "id": 48,
+      "name": "شركة احراف للمساحة الارضية شركة شخص واحد",
+      "phone": 500976895,
+      "email": "coorn.121@gmail.com"
+    },
+    {
+      "id": 49,
+      "name": "مكتب محمد حمد محمد الخلف للمساحة الارضية",
+      "phone": 505467682,
+      "email": "mhkhlaf@gmail.com"
+    },
+    {
+      "id": 50,
+      "name": "مكتب الشهري للهندسة وللاستشارات الهندسية",
+      "phone": 501356116,
+      "email": "dla2006@windoslive.com"
+    },
+    {
+      "id": 51,
+      "name": "شركة بصمة العمار للمساحة الارضية شركة شخص واحد",
+      "phone": 544446997,
+      "email": "m.ammar6997@gmail.com"
+    },
+    {
+      "id": 52,
+      "name": "شركة قرار الارض للمساحة الأرضية",
+      "phone": 546008600,
+      "email": "faisal96ff@hotmail.com"
+    },
+    {
+      "id": 53,
+      "name": "شركة افق العربية المحدودة",
+      "phone": 568250881,
+      "email": "info@ofuqalarabia.com"
+    },
+    {
+      "id": 54,
+      "name": "خالد مصلح الردادي للمساحة الارضية",
+      "phone": 570007095,
+      "email": "info@krs.com.sa"
+    },
+    {
+      "id": 55,
+      "name": "مكتب سماء الحجاز",
+      "phone": 500010755,
+      "email": "enadalgusami@yahoo.com"
+    },
+    {
+      "id": 56,
+      "name": "مؤسسة محمد ابن عامر ابن عبدالله المسيب للمساحة الأرضية",
+      "phone": 506359006,
+      "email": "alhanofabo@gmail.com"
+    },
+    {
+      "id": 57,
+      "name": "شركة قمة الهرم",
+      "phone": 534040236,
+      "email": "info@qmtalhrm.com"
+    },
+    {
+      "id": 58,
+      "name": "شركة حلول عذيب المتكاملة للتقنيات",
+      "phone": 559900112,
+      "email": "faiz@atheeb.sa"
+    },
+    {
+      "id": 59,
+      "name": "شركة هدهد الرقمية لتقنية المعلومات",
+      "phone": 558352468,
+      "email": "Ali+faisal@hudhud.sa"
+    },
+    {
+      "id": 60,
+      "name": "شركة الاتصالات المتنقلة السعودية",
+      "phone": 592443055,
+      "email": "ali.alqahtani@sa.zain.com"
+    },
+    {
+      "id": 61,
+      "name": "أمتار للإستشارات الهندسيه",
+      "phone": 505960012,
+      "email": "AMTAR4SVG@HOTMAIL.COM"
+    },
+    {
+      "id": 62,
+      "name": "مكتب اتحاد التخطيط للمساحة الارضية",
+      "phone": 544886279,
+      "email": "info@etihad1.com"
+    },
+    {
+      "id": 63,
+      "name": "مكتب التخطيط والقياس للمساحة الأرضية",
+      "phone": 555854494,
+      "email": "az.az888@hotmail.com"
+    },
+    {
+      "id": 64,
+      "name": "شركة التطوير والتقنية للمساحة",
+      "phone": 501965813,
+      "email": "info@ttgeo.sa"
+    },
+    {
+      "id": 65,
+      "name": "مكتب عبدالمجيد عبدربه بن فايز الحربي للمساحة الأرضية",
+      "phone": 545592041,
+      "email": "abd1899@hotmail.com"
+    },
+    {
+      "id": 66,
+      "name": "شركة ادفانسد ايريل مابينج سرفسيز المحدودة",
+      "phone": 564498544,
+      "email": "m.usman@aams-sa.com"
+    },
+    {
+      "id": 67,
+      "name": "مكتب الشهري للهندسة وللاستشارات الهندسية",
+      "phone": 501356116,
+      "email": "dla2006@windoslive.com"
+    },
+    {
+      "id": 68,
+      "name": "مكتب الأرصاد للمساحة الأرضية",
+      "phone": 504702770,
+      "email": "arsadoffice@gmail.com"
+    },
+    {
+      "id": 69,
+      "name": "شركة الهفوف النموذجي للمساحة الارضية",
+      "phone": 505913776,
+      "email": "office_hofuf@hotmail.com"
+    },
+    {
+      "id": 70,
+      "name": "مكتب مبارك ابراهيم عبدالله المبارك للمساحة الارضية",
+      "phone": 555138752,
+      "email": "fax2083@hotmail.com"
+    }
+  ]
+}

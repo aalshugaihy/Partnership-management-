@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: partnership-management
+    runtime: docker
+    plan: starter
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_EMAIL
+        value: admin@local
+      - key: ADMIN_PASSWORD
+        sync: false           # set via Render dashboard (not in git)
+      - key: SESSION_SECRET
+        generateValue: true   # Render auto-generates a strong value
+      # Optional: enable real email sending. Leave unset to only generate CSVs.
+      # - key: SMTP_HOST
+      #   value: smtp.gmail.com
+      # - key: SMTP_PORT
+      #   value: "587"
+      # - key: SMTP_USER
+      #   sync: false
+      # - key: SMTP_PASS
+      #   sync: false
+      # - key: SMTP_FROM
+      #   value: "منصة الشراكات <your-email@example.com>"
+    disk:
+      name: app-data
+      mountPath: /app/data
+      sizeGB: 1
