@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends libstdc++6 \
     && groupadd -r node2 || true
 
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public 2>/dev/null || true
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/next.config.js ./next.config.js
@@ -39,4 +39,4 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
   CMD node -e "fetch('http://localhost:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 
-CMD ["sh", "-c", "if [ ! -f /app/data/app.db ]; then npm run seed; fi && npx next start -p 3000 -H 0.0.0.0"]
+CMD ["sh", "-c", "if [ ! -f /app/data/app.db ]; then npm run seed; fi && npx next start -p ${PORT:-3000} -H 0.0.0.0"]
