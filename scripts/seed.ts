@@ -78,9 +78,23 @@ function strategicValueFor(company: string): number {
   return 5
 }
 
-const raw: Seed = JSON.parse(
-  fs.readFileSync(path.join(process.cwd(), 'data', 'seed.json'), 'utf-8')
-)
+// seed.json lives next to this script so it survives volume mounts on /app/data
+function findSeedFile(): string {
+  const candidates = [
+    process.env.SEED_FILE,
+    path.join(__dirname, 'seed.json'),
+    path.join(process.cwd(), 'scripts', 'seed.json'),
+    path.join(process.cwd(), 'data', 'seed.json'), // legacy fallback
+  ].filter(Boolean) as string[]
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c
+  }
+  throw new Error(`seed.json not found in any of: ${candidates.join(', ')}`)
+}
+
+const seedPath = findSeedFile()
+console.log(`Reading seed from: ${seedPath}`)
+const raw: Seed = JSON.parse(fs.readFileSync(seedPath, 'utf-8'))
 
 const d = db()
 

@@ -42,10 +42,12 @@ COPY --from=builder --chown=app:app /app/public ./public
 COPY --from=builder --chown=app:app /app/node_modules ./node_modules
 COPY --from=builder --chown=app:app /app/package.json ./package.json
 COPY --from=builder --chown=app:app /app/next.config.js ./next.config.js
-COPY --from=builder --chown=app:app /app/data ./data
 COPY --from=builder --chown=app:app /app/scripts ./scripts
 COPY --from=builder --chown=app:app /app/lib ./lib
 COPY --from=builder --chown=app:app /app/tsconfig.json ./tsconfig.json
+# NOTE: /app/data is the persistent volume mount point and is intentionally NOT
+# copied from the builder — the host volume would overlay it anyway. The DB is
+# created on first run via the seed script (which reads from scripts/seed.json).
 
 # Writable volume mount point for the SQLite database
 RUN mkdir -p /app/data && chown -R app:app /app/data
