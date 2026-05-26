@@ -1,143 +1,94 @@
 # منصة إدارة الشراكات (Partnership Management Platform)
 
-تطبيق ويب متكامل لإدارة الشراكات المؤسسية: متابعة، تفعيل، قياس أثر، توصيات ذكية، وتقارير مؤتمتة. واجهة عربية RTL بالكامل.
+تطبيق ويب متكامل لإدارة الشراكات المؤسسية: متابعة، تفعيل، قياس أثر، توصيات ذكية، وتقارير مؤتمتة. واجهة عربية RTL بالكامل، مستقلة عن أي خدمة خارجية.
 
 ## المزايا
 
-- **لوحة معلومات تنفيذية** مع رسوم بيانية تفاعلية
-- **متابعة الشراكات** عبر 7 مراحل تفعيل (دعوة → RFI → استلام → رد → ورشة → تفعيل → إنجاز)
-- **Pipeline كانبان** لتصور حالة المحفظة
-- **مؤشرات الأثر (KPIs)** مع تتبع زمني عبر اللقطات (Snapshots)
-- **محرك توصيات ذكي** يحلل التعثرات والفجوات
-- **التواصل والقوالب**: 6 قوالب رسائل عربية تُخصَّص لكل شركة + تنزيل CSV
-- **تقارير تنفيذية مؤتمتة** قابلة للتصدير (Excel + PDF)
-- **استيراد Excel** من الواجهة لإضافة شراكات جماعية
-- **مصادقة بكلمة مرور** وحماية كاملة للمسارات
-- **نسخ احتياطية** قابلة للتنزيل بضغطة زر
+| المجال | المزايا |
+|---|---|
+| **لوحات معلومات** | لوحة تنفيذية بمؤشرات شاملة + رسوم بيانية تفاعلية + خريطة جيومكانية |
+| **إدارة الشراكات** | متابعة 7 مراحل تفعيل + Pipeline كانبان + بحث متعدد المعايير |
+| **الفرص الاستثمارية** | 6 مراحل بيع، CRUD كامل، حساب القيمة المرجّحة |
+| **التواصل** | 6 قوالب رسائل عربية + جمهور مستهدف ديناميكي + تنزيل CSV |
+| **التقارير** | تقارير تنفيذية مؤتمتة + تصدير Excel + PDF |
+| **التوصيات** | محرك توصيات يحلل التعثرات والفجوات والفرص بأولويات |
+| **التتبع الزمني** | لقطات (Snapshots) لمؤشرات الأداء + رسم اتجاه |
+| **المرفقات** | رفع/تنزيل ملفات لكل شراكة (≤5MB) |
+| **المستخدمون** | 4 أدوار (admin/manager/viewer/rep) + حماية ضد القوة الغاشمة |
+| **التدقيق** | سجل لكل إجراء حساس مع المستخدم والتاريخ |
+| **النسخ الاحتياطي** | تنزيل قاعدة البيانات بضغطة زر |
+| **الاستيراد** | رفع ملفات Excel من الواجهة |
 
 ## التشغيل المحلي
 
 ```bash
 npm install
 cp .env.example .env.local      # عدّل ADMIN_PASSWORD و SESSION_SECRET
-npm run seed                     # تعبئة البيانات من data/seed.json
+npm run seed                     # تعبئة البيانات
 npm run dev                      # http://localhost:3000
 ```
 
-كلمة المرور الافتراضية: `admin1234`.
+دخول افتراضي: `admin@local` / `admin1234`.
 
 ## النشر للإنتاج
 
-### الخيار ١: Docker (موصى به)
+راجع [DEPLOYMENT.md](./DEPLOYMENT.md) للتعليمات التفصيلية على **Render**، **Railway**، أو **Fly.io**.
 
-```bash
-# بناء الصورة
-docker build -t partnership-management .
-
-# تشغيل مع تخزين دائم
-docker run -d \
-  -p 3000:3000 \
-  -e ADMIN_PASSWORD="كلمة-مرور-قوية" \
-  -e SESSION_SECRET="$(openssl rand -hex 32)" \
-  -v partnership-data:/app/data \
-  --name partnership-app \
-  --restart unless-stopped \
-  partnership-management
-```
-
-أو عبر `docker-compose`:
-
-```bash
-export ADMIN_PASSWORD="كلمة-مرور-قوية"
-export SESSION_SECRET="$(openssl rand -hex 32)"
-docker compose up -d
-```
-
-### الخيار ٢: VPS مباشر (Ubuntu/Debian)
-
-```bash
-# على الخادم
-sudo apt update && sudo apt install -y nodejs npm
-git clone <repo-url> && cd Partnership-management-
-npm ci
-npm run build
-npm run seed
-
-# متغيرات البيئة (في /etc/systemd/system/partnership.service مثلاً)
-ADMIN_PASSWORD=... SESSION_SECRET=... npm start
-```
-
-ثم اضبط `nginx` كـ reverse proxy لـ `localhost:3000` مع SSL عبر Certbot.
-
-### الخيار ٣: منصات السحابة
-
-- **Render / Railway / Fly.io**: انشر مباشرة من Dockerfile مع volume للـ `/app/data`.
-- **AWS / GCP / Azure**: ECS / Cloud Run / Container Apps + EFS / Filestore للبيانات.
-- **Vercel**: غير موصى به لأن SQLite يحتاج FS قابل للكتابة. للنشر على Vercel، استبدل `better-sqlite3` بـ Postgres (مثل Neon/Supabase).
-
-## متغيرات البيئة
-
-| المتغير | الإلزام | الوصف |
-|---|---|---|
-| `ADMIN_PASSWORD` | نعم | كلمة المرور لتسجيل الدخول |
-| `SESSION_SECRET` | نعم | سر التوقيع للكوكيز (≥32 حرف عشوائي) |
-| `DISABLE_AUTH` | لا | `1` لتعطيل المصادقة (تطوير فقط) |
-| `NODE_ENV` | لا | `production` للإنتاج |
-
-## نقاط النهاية (API)
-
-| المسار | الطريقة | الوظيفة |
-|---|---|---|
-| `/api/health` | GET | فحص صحة النظام (عام) |
-| `/api/auth/login` | POST | تسجيل دخول |
-| `/api/auth/logout` | POST | تسجيل خروج |
-| `/api/partners` | POST | إنشاء شراكة |
-| `/api/partners/[id]` | PATCH | تحديث حالة شراكة |
-| `/api/partners/[id]/activities` | POST | تسجيل نشاط |
-| `/api/opportunities` | POST/PATCH | إدارة الفرص |
-| `/api/outreach` | POST | توليد CSV رسائل |
-| `/api/import` | POST | استيراد Excel |
-| `/api/export?type=partners\|licensed` | GET | تصدير Excel |
-| `/api/reports` | GET | توليد تقرير HTML قابل للطباعة |
-| `/api/snapshots` | GET/POST | لقطات الأثر الزمني |
-| `/api/backup` | GET | تنزيل نسخة احتياطية من قاعدة البيانات |
-
-## النسخ الاحتياطي
-
-من صفحة "التقارير" → زر **نسخة احتياطية** يُنزّل الملف الكامل لـ SQLite. يُنصح بجدولة:
-
-```bash
-# كل ليلة 2:00 صباحاً
-0 2 * * * curl -s -b "pm_session=..." https://app.example.com/api/backup -o /backups/partnership-$(date +\%F).db
-```
-
-أو ببساطة `rsync` لمجلد `data/` بشكل دوري.
+ملف `render.yaml` جاهز للنشر بضغطة Blueprint واحدة على Render.
 
 ## بنية الكود
 
 ```
-app/                  # صفحات Next.js (App Router)
-  api/                # نقاط النهاية REST
-  partners/[id]/      # صفحة تفاصيل + نماذج
-  ...
-components/           # UI components (Sidebar, Charts, Forms)
+app/                       # صفحات Next.js (App Router) - كلها RTL
+  api/                     # نقاط النهاية REST
+    auth/{login,logout,me} # المصادقة
+    partners/[id]/         # تحديث + نشاطات + مرفقات
+    opportunities          # CRUD فرص
+    users                  # إدارة مستخدمين (admin)
+    snapshots, backup,
+    export, reports,
+    search, import         # خدمات الأعمال
+  partners, pipeline, opportunities, workshops, map,
+  kpi, outreach, recommendations, reports, import,
+  licensed, users, audit, login                # الصفحات
+components/                # Sidebar, Charts, AppShell, Forms
 lib/
-  db.ts               # SQLite + هجرات
-  queries.ts          # استعلامات + محرك التوصيات + تقارير
-  outreach.ts         # قوالب الرسائل
-  auth.ts             # المصادقة
-middleware.ts         # حماية المسارات
-scripts/seed.ts       # تعبئة قاعدة البيانات
-data/seed.json        # البذور من ملف Excel الأصلي
-Dockerfile            # بناء Docker
-docker-compose.yml    # تشغيل سريع
+  db.ts                    # SQLite schema + migrations + helpers
+  auth.ts                  # Sessions, roles, login, audit
+  queries.ts               # Business logic + reports + recs
+  outreach.ts              # 6 قوالب رسائل
+scripts/seed.ts            # تعبئة DB من seed.json
+data/seed.json             # 151 شراكة + 70 جهة مرخصة
+.github/workflows/ci.yml   # اختبار شامل آلي على GitHub
+Dockerfile                 # متعدد مراحل، مستخدم غير-root، healthcheck
+render.yaml                # Blueprint لـ Render
+fly.toml, railway.json     # تكوينات Fly/Railway
 ```
 
-## مصادر البيانات الأولية
+## الأدوار (Roles)
 
-تم استخراج **151 شراكة** و **70 جهة مرخصة** من ملف "القائمة المختصرة 1.03" المرفق.
-ملف 1.01 محمي بكلمة مرور؛ يمكن استيراده لاحقاً بعد فك تشفيره عبر صفحة "استيراد البيانات".
+| الدور | الصلاحيات |
+|---|---|
+| `admin` | كل شيء + إدارة المستخدمين + سجل التدقيق |
+| `manager` | تعديل الشراكات، الفرص، إنشاء أنشطة، رفع مرفقات |
+| `viewer` | قراءة فقط لكل البيانات |
+| `rep` | (تحت التطوير) بوابة ممثل الشركة - عرض شراكته فقط |
 
-## الترخيص
+## متغيرات البيئة
 
-داخلي - لا يُعاد توزيعه دون إذن.
+| المتغير | افتراضي | الوصف |
+|---|---|---|
+| `ADMIN_EMAIL` | `admin@local` | بريد المدير الافتراضي |
+| `ADMIN_PASSWORD` | `admin1234` | كلمة مرور المدير (غيّرها!) |
+| `SESSION_SECRET` | (مولّد) | سر توقيع الكوكيز (≥16 حرف) |
+| `DB_PATH` | `data/app.db` | مسار قاعدة البيانات |
+| `DISABLE_AUTH` | — | `1` لتعطيل المصادقة (تطوير فقط) |
+| `PORT` | `3000` | منفذ الاستماع |
+
+## مصادر البيانات
+
+تم استخراج **151 شراكة** و **70 جهة مرخصة** من ملف "القائمة المختصرة 1.03". ملف 1.01 محمي بكلمة مرور - يمكن استيراده لاحقاً عبر صفحة "استيراد البيانات".
+
+## CI/CD
+
+كل دفع إلى الفرع يُشغّل GitHub Action يبني التطبيق ويختبر جميع المسارات.

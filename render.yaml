@@ -5,15 +5,18 @@ services:
     plan: starter
     region: frankfurt
     dockerfilePath: ./Dockerfile
+    dockerContext: .
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
+      - key: ADMIN_EMAIL
+        value: admin@local
       - key: ADMIN_PASSWORD
-        sync: false
+        sync: false           # set via Render dashboard (not in git)
       - key: SESSION_SECRET
-        generateValue: true
+        generateValue: true   # Render auto-generates a strong value
     disk:
       name: app-data
       mountPath: /app/data
