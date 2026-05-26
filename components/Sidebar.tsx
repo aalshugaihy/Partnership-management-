@@ -8,8 +8,10 @@ const links = [
   { href: '/pipeline', label: 'مسار التفعيل', icon: '⇶' },
   { href: '/workshops', label: 'ورش العمل', icon: '◉' },
   { href: '/kpi', label: 'مؤشرات الأثر', icon: '▤' },
+  { href: '/outreach', label: 'التواصل والقوالب', icon: '✉' },
   { href: '/recommendations', label: 'التوصيات الذكية', icon: '✦' },
   { href: '/reports', label: 'التقارير المؤتمتة', icon: '▤' },
+  { href: '/import', label: 'استيراد البيانات', icon: '↥' },
   { href: '/licensed', label: 'الجهات المرخصة', icon: '✓' },
 ]
 

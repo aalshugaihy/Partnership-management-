@@ -1,6 +1,7 @@
 import { listPartners } from '@/lib/queries'
 import { db, STAGES } from '@/lib/db'
 import Link from 'next/link'
+import { AddPartnerDialog } from '@/components/AddPartnerDialog'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,7 +18,10 @@ export default function PartnersPage({ searchParams }: { searchParams: { q?: str
           <h1 className="text-2xl font-black">الشراكات</h1>
           <p className="text-slate-500 mt-1">إجمالي {partners.length} شراكة</p>
         </div>
-        <Link href="/api/export?type=partners" className="btn btn-ghost border border-slate-200">تصدير Excel</Link>
+        <div className="flex gap-2">
+          <Link href="/api/export?type=partners" className="btn btn-ghost border border-slate-200">تصدير Excel</Link>
+          <AddPartnerDialog />
+        </div>
       </header>
 
       <form className="card p-4 grid md:grid-cols-5 gap-3">

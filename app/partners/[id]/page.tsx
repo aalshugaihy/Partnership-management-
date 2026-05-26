@@ -2,6 +2,7 @@ import { getPartner, getContacts, getActivities, getKPIs } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { UpdatePartnerForm } from './UpdatePartnerForm'
+import { AddActivityForm } from './AddActivityForm'
 
 export const dynamic = 'force-dynamic'
 
@@ -103,6 +104,7 @@ export default function PartnerDetail({ params }: { params: { id: string } }) {
             ))}
             {activities.length === 0 && <div className="text-slate-500">لا نشاطات.</div>}
           </ul>
+          <AddActivityForm partnerId={partner.id} />
         </div>
       </div>
     </div>
