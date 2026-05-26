@@ -7,6 +7,7 @@ type Me = { email: string; role: string } | null
 
 const baseLinks = [
   { href: '/', label: 'لوحة المعلومات', icon: '◐' },
+  { href: '/tasks', label: 'المهام والإشعارات', icon: '●' },
   { href: '/partners', label: 'الشراكات', icon: '◇' },
   { href: '/pipeline', label: 'مسار التفعيل', icon: '⇶' },
   { href: '/opportunities', label: 'الفرص الاستثمارية', icon: '✦' },
@@ -35,15 +36,20 @@ export function Sidebar() {
 
   if (path === '/login') return null
 
+  const isRep = me?.role === 'rep'
+  const links = isRep
+    ? [{ href: '/portal', label: 'بوابة الشريك', icon: '◉' }]
+    : baseLinks
+
   return (
     <aside className="w-64 bg-white border-l border-slate-200 p-5 flex flex-col gap-1 shrink-0 max-h-screen overflow-y-auto">
       <div className="mb-4 px-2">
         <div className="text-xl font-black text-brand-700">منصة الشراكات</div>
-        <div className="text-xs text-slate-500 mt-1">إدارة - متابعة - أثر</div>
+        <div className="text-xs text-slate-500 mt-1">{isRep ? 'بوابة الشريك' : 'إدارة - متابعة - أثر'}</div>
       </div>
 
       <div className="space-y-1">
-        {baseLinks.map(l => (
+        {links.map(l => (
           <Link key={l.href} href={l.href} className={`sidebar-link ${path === l.href ? 'active' : ''}`}>
             <span className="text-lg leading-none">{l.icon}</span>
             <span>{l.label}</span>

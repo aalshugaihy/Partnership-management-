@@ -119,6 +119,13 @@ export function currentUser(): { email: string; role: Role } | null {
   return verifySession(c)
 }
 
+export function currentUserFull(): { email: string; role: Role; name: string | null; partner_id: number | null } | null {
+  const u = currentUser()
+  if (!u) return null
+  const row = db().prepare(`SELECT email, role, name, partner_id FROM users WHERE email = ?`).get(u.email) as any
+  return row || u as any
+}
+
 export function isAuthenticated(): boolean {
   return currentUser() !== null
 }

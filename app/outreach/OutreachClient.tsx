@@ -1,11 +1,18 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState, useTransition } from 'react'
 import Link from 'next/link'
 
 type Item = { id: number; company: string; sector: string }
+type MailerStatus = { configured: boolean; host: string | null; from: string | null; lastError: string | null }
 
 export function OutreachClient({ templateId, partners }: { templateId: string; partners: Item[] }) {
   const [sel, setSel] = useState<Set<number>>(new Set(partners.map(p => p.id)))
+  const [mailer, setMailer] = useState<MailerStatus | null>(null)
+  const [sending, startSend] = useTransition()
+  const [result, setResult] = useState<string>('')
+
+  useEffect(() => { fetch('/api/outreach/send').then(r => r.json()).then(setMailer).catch(() => {}) }, [])
+
   const toggle = (id: number) => {
     const next = new Set(sel)
     next.has(id) ? next.delete(id) : next.add(id)
@@ -24,6 +31,20 @@ export function OutreachClient({ templateId, partners }: { templateId: string; p
     a.href = url
     a.download = `outreach-${templateId}-${Date.now()}.csv`
     a.click()
+  }
+
+  const sendActual = () => {
+    if (!confirm(`إرسال البريد فعليًا إلى ${sel.size} شركة؟`)) return
+    setResult('')
+    startSend(async () => {
+      const res = await fetch('/api/outreach/send', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ templateId, partnerIds: Array.from(sel) }),
+      })
+      const data = await res.json()
+      if (res.ok) setResult(`✓ تم إرسال ${data.sent} رسالة، فشل ${data.failed}${data.skipped?.length ? `، تخطّي ${data.skipped.length} (بلا بريد)` : ''}.`)
+      else setResult(`✗ ${data.error}`)
+    })
   }
 
   return (
@@ -48,9 +69,21 @@ export function OutreachClient({ templateId, partners }: { templateId: string; p
           <div className="text-sm text-slate-500 py-4 text-center">لا يوجد مستهدفون لهذا القالب.</div>
         )}
       </div>
-      <button onClick={download} disabled={sel.size === 0} className="btn btn-primary w-full disabled:opacity-50">
-        تنزيل CSV للرسائل
-      </button>
+      <div className="space-y-2">
+        <button onClick={download} disabled={sel.size === 0} className="btn btn-ghost border border-slate-200 w-full disabled:opacity-50">
+          تنزيل CSV للرسائل
+        </button>
+        <button onClick={sendActual} disabled={sel.size === 0 || sending || !mailer?.configured}
+          className="btn btn-primary w-full disabled:opacity-50">
+          {sending ? 'جاري الإرسال...' : `إرسال البريد فعليًا (${sel.size})`}
+        </button>
+        {mailer && !mailer.configured && (
+          <div className="text-xs text-amber-700 bg-amber-50 p-2 rounded">
+            ⚠ SMTP غير مُكوّن. أضف <code>SMTP_HOST</code>, <code>SMTP_USER</code>, <code>SMTP_PASS</code> كمتغيرات بيئة لتفعيل الإرسال.
+          </div>
+        )}
+        {result && <div className={`text-xs p-2 rounded ${result.startsWith('✓') ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>{result}</div>}
+      </div>
     </div>
   )
 }

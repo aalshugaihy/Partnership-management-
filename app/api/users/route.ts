@@ -19,9 +19,13 @@ export async function POST(req: NextRequest) {
   if (!email || !password) return NextResponse.json({ error: 'email & password required' }, { status: 400 })
   if (password.length < 6) return NextResponse.json({ error: 'كلمة المرور قصيرة جداً' }, { status: 400 })
 
+  const partnerId = role === 'rep' && b.partner_id ? Number(b.partner_id) : null
+  if (role === 'rep' && !partnerId) {
+    return NextResponse.json({ error: 'ممثل الشريك يتطلب partner_id' }, { status: 400 })
+  }
   try {
-    db().prepare(`INSERT INTO users (email, name, password_hash, role) VALUES (?, ?, ?, ?)`)
-      .run(email, name, hashPassword(password), role)
+    db().prepare(`INSERT INTO users (email, name, password_hash, role, partner_id) VALUES (?, ?, ?, ?, ?)`)
+      .run(email, name, hashPassword(password), role, partnerId)
     audit('user.create', { user: currentUser()?.email, type: 'user', id: email, details: role })
     return NextResponse.json({ ok: true })
   } catch (e: any) {

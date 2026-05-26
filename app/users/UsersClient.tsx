@@ -2,26 +2,29 @@
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 
-type User = { id: number; email: string; name: string | null; role: string; active: number; last_login: string | null; created_at: string }
+type User = { id: number; email: string; name: string | null; role: string; partner_id: number | null; active: number; last_login: string | null; created_at: string }
+type Partner = { id: number; company: string }
 
 const ROLES = ['admin', 'manager', 'viewer', 'rep']
 
-export function UsersClient({ initial, labels }: { initial: User[]; labels: Record<string, string> }) {
+export function UsersClient({ initial, labels, partners }: { initial: User[]; labels: Record<string, string>; partners: Partner[] }) {
   const router = useRouter()
   const [pending, start] = useTransition()
   const [open, setOpen] = useState(false)
-  const [form, setForm] = useState({ email: '', name: '', password: '', role: 'viewer' })
+  const [form, setForm] = useState({ email: '', name: '', password: '', role: 'viewer', partner_id: '' })
   const [msg, setMsg] = useState('')
 
   const create = (e: React.FormEvent) => {
     e.preventDefault()
     setMsg('')
     start(async () => {
-      const res = await fetch('/api/users', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) })
+      const payload: any = { ...form }
+      if (form.role === 'rep' && form.partner_id) payload.partner_id = Number(form.partner_id)
+      const res = await fetch('/api/users', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       const data = await res.json()
       if (res.ok) {
         setOpen(false)
-        setForm({ email: '', name: '', password: '', role: 'viewer' })
+        setForm({ email: '', name: '', password: '', role: 'viewer', partner_id: '' })
         router.refresh()
       } else setMsg(data.error)
     })
@@ -102,6 +105,12 @@ export function UsersClient({ initial, labels }: { initial: User[]; labels: Reco
             <select value={form.role} onChange={e => setForm({...form, role: e.target.value})} className="w-full border rounded-lg px-3 py-2">
               {ROLES.map(r => <option key={r} value={r}>{labels[r] || r}</option>)}
             </select>
+            {form.role === 'rep' && (
+              <select required value={form.partner_id} onChange={e => setForm({...form, partner_id: e.target.value})} className="w-full border rounded-lg px-3 py-2">
+                <option value="">-- اختر الشركة التي يمثلها --</option>
+                {partners.map(p => <option key={p.id} value={p.id}>{p.company}</option>)}
+              </select>
+            )}
             {msg && <div className="text-rose-600 text-sm">{msg}</div>}
             <div className="flex justify-end gap-2 pt-2">
               <button type="button" onClick={() => setOpen(false)} className="btn btn-ghost">إلغاء</button>

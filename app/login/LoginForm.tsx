@@ -19,7 +19,9 @@ export function LoginForm({ next, initialError }: { next?: string; initialError?
         body: JSON.stringify({ email, password }),
       })
       if (res.ok) {
-        router.push(next || '/')
+        const data = await res.json()
+        const target = next || (data.user?.role === 'rep' ? '/portal' : '/')
+        router.push(target)
         router.refresh()
       } else {
         const data = await res.json().catch(() => ({}))

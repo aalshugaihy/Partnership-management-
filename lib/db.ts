@@ -143,6 +143,7 @@ function migrate(d: Database.Database) {
       name TEXT,
       password_hash TEXT NOT NULL,
       role TEXT NOT NULL DEFAULT 'viewer',
+      partner_id INTEGER,
       active INTEGER DEFAULT 1,
       created_at TEXT DEFAULT (datetime('now')),
       last_login TEXT
@@ -196,6 +197,7 @@ function migrate(d: Database.Database) {
   addColumn('opportunities', 'expected_close_date', 'TEXT')
   addColumn('opportunities', 'updated_at', 'TEXT')
   addColumn('activities', 'actor', 'TEXT')
+  addColumn('users', 'partner_id', 'INTEGER')
   addColumn('licensed_companies', 'license_type', 'TEXT')
   addColumn('licensed_companies', 'issued_at', 'TEXT')
   addColumn('licensed_companies', 'expires_at', 'TEXT')
@@ -286,6 +288,7 @@ export type User = {
   name: string | null
   password_hash: string
   role: 'admin' | 'manager' | 'viewer' | 'rep'
+  partner_id: number | null
   active: number
   created_at: string
   last_login: string | null

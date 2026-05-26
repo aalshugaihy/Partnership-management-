@@ -13,8 +13,11 @@ export default function WorkshopsPage() {
     ORDER BY workshop_date DESC
   `).all() as any[]
 
-  const attended = workshops.filter(w => w.workshop_attendance && /حضور|تم/.test(w.workshop_attendance)).length
-  const scheduled = workshops.filter(w => w.workshop_date && !w.workshop_attendance).length
+  const now = new Date().toISOString().slice(0, 10)
+  const attended = workshops.filter(w => w.workshop_attendance && /حضور|تم/.test(w.workshop_attendance))
+  const upcoming = workshops.filter(w => w.workshop_date && w.workshop_date >= now && !attended.includes(w))
+  const past = workshops.filter(w => w.workshop_date && w.workshop_date < now && !attended.includes(w))
+  const noShow = workshops.filter(w => w.workshop_attendance && !/حضور|تم/.test(w.workshop_attendance))
 
   return (
     <div className="space-y-6">
@@ -23,23 +26,37 @@ export default function WorkshopsPage() {
         <p className="text-slate-500 mt-1">إدارة ومتابعة ورش العمل مع الشركاء</p>
       </header>
 
-      <div className="grid grid-cols-3 gap-4">
-        <div className="stat"><div className="text-xs text-slate-500">إجمالي الورش</div><div className="text-3xl font-black">{workshops.length}</div></div>
-        <div className="stat"><div className="text-xs text-slate-500">تم الحضور</div><div className="text-3xl font-black text-emerald-600">{attended}</div></div>
-        <div className="stat"><div className="text-xs text-slate-500">مجدولة</div><div className="text-3xl font-black text-amber-600">{scheduled}</div></div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="stat py-3 px-4"><div className="text-xs text-slate-500">إجمالي</div><div className="text-2xl font-black">{workshops.length}</div></div>
+        <div className="stat py-3 px-4"><div className="text-xs text-slate-500">قادمة</div><div className="text-2xl font-black text-amber-600">{upcoming.length}</div></div>
+        <div className="stat py-3 px-4"><div className="text-xs text-slate-500">تم الحضور</div><div className="text-2xl font-black text-emerald-600">{attended.length}</div></div>
+        <div className="stat py-3 px-4"><div className="text-xs text-slate-500">عدم حضور</div><div className="text-2xl font-black text-rose-600">{noShow.length}</div></div>
       </div>
 
-      <div className="card">
+      <Section title="ورش قادمة" items={upcoming} accent="amber" />
+      <Section title="ورش حضرها الشركاء" items={attended} accent="emerald" />
+      <Section title="ورش سابقة" items={past} accent="slate" />
+      {noShow.length > 0 && <Section title="عدم حضور / تعذّر" items={noShow} accent="rose" />}
+    </div>
+  )
+}
+
+function Section({ title, items, accent }: { title: string; items: any[]; accent: string }) {
+  if (!items.length) return null
+  return (
+    <section>
+      <h2 className={`text-lg font-bold mb-2 text-${accent}-700`}>{title} ({items.length})</h2>
+      <div className="card overflow-hidden">
         <table className="data">
           <thead>
-            <tr><th>الشركة</th><th>القطاع</th><th>التاريخ</th><th>الوقت</th><th>المنصة</th><th>الحضور</th><th></th></tr>
+            <tr><th>الشركة</th><th>القطاع</th><th>التاريخ</th><th>الوقت</th><th>المنصة</th><th>الحالة</th><th></th></tr>
           </thead>
           <tbody>
-            {workshops.map(w => (
+            {items.map(w => (
               <tr key={w.id}>
                 <td className="font-medium">{w.company}</td>
                 <td>{w.sector}</td>
-                <td>{w.workshop_date ? new Date(w.workshop_date).toLocaleDateString('ar-SA') : '—'}</td>
+                <td>{w.workshop_date || '—'}</td>
                 <td>{w.workshop_time || '—'}</td>
                 <td>{w.platform || '—'}</td>
                 <td>
@@ -52,12 +69,9 @@ export default function WorkshopsPage() {
                 <td><Link href={`/partners/${w.id}`} className="text-brand-600 text-sm">عرض ←</Link></td>
               </tr>
             ))}
-            {workshops.length === 0 && (
-              <tr><td colSpan={7} className="text-center text-slate-500 py-10">لا توجد ورش عمل بعد.</td></tr>
-            )}
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   )
 }
