@@ -239,9 +239,46 @@ const tx = d.transaction(() => {
   }
 
   // === 2) GEOSA Active Partners (signed MoUs and agreements) ===
+  // Idempotent: skip insert if a partner with the same company name already exists.
+  // This makes it safe to re-run seed on an existing database (e.g. after deployment upgrades).
+  const findByName = d.prepare(`SELECT id FROM partners WHERE TRIM(company) = TRIM(?)`)
+  const updGeosa = d.prepare(`
+    UPDATE partners SET
+      record_type = 'active',
+      agreement_type = COALESCE(@agreement_type, agreement_type),
+      geosa_classification = COALESCE(@geosa_classification, geosa_classification),
+      entity_category = COALESCE(@entity_category, entity_category),
+      cooperation_areas = COALESCE(@cooperation_areas, cooperation_areas),
+      sector = COALESCE(@sector, sector),
+      country = COALESCE(@country, country),
+      region = COALESCE(@region, region),
+      latitude = COALESCE(@latitude, latitude),
+      longitude = COALESCE(@longitude, longitude),
+      updated_at = datetime('now')
+    WHERE id = @id
+  `)
   const startId = ((d.prepare('SELECT MAX(id) AS m FROM partners').get() as any).m ?? 0) + 1
   let nextId = startId
+  let geosaInserted = 0, geosaUpdated = 0
   for (const g of geosaSeed.active_partners) {
+    const existing = findByName.get(g.company) as any
+    if (existing) {
+      // Already there → upgrade its GEOSA metadata in place.
+      updGeosa.run({
+        id: existing.id,
+        agreement_type: g.agreement_type,
+        geosa_classification: g.geosa_classification,
+        entity_category: g.entity_category,
+        cooperation_areas: serializeCoopAreas(g.cooperation_areas || []),
+        sector: g.sector || sectorForEntity(g.entity_category),
+        country: g.country || 'السعودية',
+        region: g.region || null,
+        latitude: g.latitude ?? null,
+        longitude: g.longitude ?? null,
+      })
+      geosaUpdated++
+      continue
+    }
     const id = nextId++
     // Distribute the 4 GEOSA stages so the pipeline isn't empty
     const stageIdx = (id - startId) % GEOSA_STAGES.length
@@ -276,7 +313,9 @@ const tx = d.transaction(() => {
     insP.run(fields)
     insAct.run(id, 'توقيع', `توقيع ${fields.agreement_type === 'mou' ? 'مذكرة تفاهم' : 'اتفاقية'}`,
       `تم توقيع الاتفاقية مع ${g.company}`)
+    geosaInserted++
   }
+  console.log(`GEOSA active partners: ${geosaInserted} inserted, ${geosaUpdated} updated.`)
 
   // === 3) Licensed companies ===
   d.prepare('DELETE FROM licensed_companies').run()
