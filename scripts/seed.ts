@@ -1,6 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import { db, computeActivationScore, deriveStage } from '../lib/db'
+import {
+  db, computeActivationScore, deriveStage, serializeCoopAreas,
+  GEOSA_STAGES,
+} from '../lib/db'
 import { ensureDefaultAdmin } from '../lib/auth'
 
 type RawPartner = {
@@ -23,9 +26,30 @@ type RawPartner = {
   representative?: { name?: any; phone?: any; email?: any }
 }
 
+type GeosaPartner = {
+  company: string
+  entity_category: string
+  agreement_type: string
+  geosa_classification: string
+  cooperation_areas: string[]
+  country?: string
+  sector?: string
+  region?: string
+  signed_date?: string
+  expiry_date?: string
+  reference_url?: string
+  latitude?: number
+  longitude?: number
+  notes?: string
+}
+
 type Seed = {
   partners: RawPartner[]
   licensed_companies: Array<{ id: number; name: string; phone?: any; email?: any }>
+}
+
+type GeosaSeed = {
+  active_partners: GeosaPartner[]
 }
 
 function toInt(v: any): number {
@@ -78,34 +102,71 @@ function strategicValueFor(company: string): number {
   return 5
 }
 
-// seed.json lives next to this script so it survives volume mounts on /app/data
-function findSeedFile(): string {
-  const candidates = [
-    process.env.SEED_FILE,
-    path.join(__dirname, 'seed.json'),
-    path.join(process.cwd(), 'scripts', 'seed.json'),
-    path.join(process.cwd(), 'data', 'seed.json'), // legacy fallback
-  ].filter(Boolean) as string[]
-  for (const c of candidates) {
-    if (fs.existsSync(c)) return c
-  }
-  throw new Error(`seed.json not found in any of: ${candidates.join(', ')}`)
+// === Helpers for GEOSA active partners ===
+
+// Map GEOSA classification → numeric strategic value (1-10)
+function strategicForClassification(cls: string): number {
+  if (cls === 'strategic') return 9
+  if (cls === 'operational') return 7
+  return 5
 }
 
-const seedPath = findSeedFile()
-console.log(`Reading seed from: ${seedPath}`)
+// Map GEOSA classification → tier label (reuse existing tier values for visual continuity)
+function tierForClassification(cls: string): string {
+  if (cls === 'strategic') return 'استراتيجي'
+  if (cls === 'operational') return 'مرتفع'
+  return 'قياسي'
+}
+
+// Map entity category → human-readable sector if PDF didn't specify one
+function sectorForEntity(category: string): string {
+  switch (category) {
+    case 'government': return 'حكومي'
+    case 'university': return 'تعليم وبحث'
+    case 'private': return 'قطاع خاص'
+    case 'international_org': return 'منظمات دولية'
+    case 'regional_alliance': return 'تحالفات إقليمية'
+    case 'ngo': return 'منظمات غير ربحية'
+    default: return 'متعدد'
+  }
+}
+
+function findFile(name: string): string | null {
+  const candidates = [
+    path.join(__dirname, name),
+    path.join(process.cwd(), 'scripts', name),
+    path.join(process.cwd(), 'data', name),
+  ]
+  for (const c of candidates) if (fs.existsSync(c)) return c
+  return null
+}
+
+const seedPath = findFile('seed.json')
+if (!seedPath) throw new Error('seed.json not found')
+console.log(`Reading prospects seed from: ${seedPath}`)
 const raw: Seed = JSON.parse(fs.readFileSync(seedPath, 'utf-8'))
+
+const geosaPath = findFile('geosa-partners.json')
+let geosaSeed: GeosaSeed = { active_partners: [] }
+if (geosaPath) {
+  console.log(`Reading GEOSA active partners from: ${geosaPath}`)
+  geosaSeed = JSON.parse(fs.readFileSync(geosaPath, 'utf-8'))
+}
 
 const d = db()
 
 const insP = d.prepare(`
   INSERT OR REPLACE INTO partners
-  (id, company, sector, country, tier, status, stage, invite_sent, rfi_sent,
+  (id, company, sector, country, region, tier, status, stage, invite_sent, rfi_sent,
    initial_receipt, response_received, extension_request, platform, rfi_delivery,
-   workshop_attendance, workshop_date, workshop_time, notes, strategic_value, activation_score)
-  VALUES (@id, @company, @sector, @country, @tier, @status, @stage, @invite_sent, @rfi_sent,
+   workshop_attendance, workshop_date, workshop_time, notes, strategic_value, activation_score,
+   record_type, agreement_type, geosa_classification, entity_category, cooperation_areas,
+   signed_date, expiry_date, next_review_date, reference_url, latitude, longitude)
+  VALUES (@id, @company, @sector, @country, @region, @tier, @status, @stage, @invite_sent, @rfi_sent,
    @initial_receipt, @response_received, @extension_request, @platform, @rfi_delivery,
-   @workshop_attendance, @workshop_date, @workshop_time, @notes, @strategic_value, @activation_score)
+   @workshop_attendance, @workshop_date, @workshop_time, @notes, @strategic_value, @activation_score,
+   @record_type, @agreement_type, @geosa_classification, @entity_category, @cooperation_areas,
+   @signed_date, @expiry_date, @next_review_date, @reference_url, @latitude, @longitude)
 `)
 
 const delC = d.prepare(`DELETE FROM contacts WHERE partner_id = ?`)
@@ -119,14 +180,16 @@ const insAct = d.prepare(`
 `)
 
 const tx = d.transaction(() => {
+  // === 1) Prospects (the original 151 lead-funnel records) ===
   for (const p of raw.partners) {
     const company = (p.company || '').replace(/^\s+|\s+$/g, '')
     if (!company) continue
-    const fields = {
+    const fields: any = {
       id: p.id,
       company,
       sector: inferSector(company),
       country: inferCountry(company),
+      region: null,
       tier: tierFor(company),
       status: s(p.status) || 'لا يوجد',
       stage: '',
@@ -143,9 +206,20 @@ const tx = d.transaction(() => {
       notes: s(p.notes) || s(p.remarks),
       strategic_value: strategicValueFor(company),
       activation_score: 0,
+      record_type: 'prospect',
+      agreement_type: null,
+      geosa_classification: null,
+      entity_category: null,
+      cooperation_areas: '[]',
+      signed_date: null,
+      expiry_date: null,
+      next_review_date: null,
+      reference_url: null,
+      latitude: null,
+      longitude: null,
     }
-    fields.activation_score = computeActivationScore(fields as any)
-    fields.stage = deriveStage(fields as any)
+    fields.activation_score = computeActivationScore(fields)
+    fields.stage = deriveStage(fields)
     insP.run(fields)
     delC.run(p.id)
     for (const c of p.contacts || []) {
@@ -164,40 +238,97 @@ const tx = d.transaction(() => {
     }
   }
 
+  // === 2) GEOSA Active Partners (signed MoUs and agreements) ===
+  const startId = ((d.prepare('SELECT MAX(id) AS m FROM partners').get() as any).m ?? 0) + 1
+  let nextId = startId
+  for (const g of geosaSeed.active_partners) {
+    const id = nextId++
+    // Distribute the 4 GEOSA stages so the pipeline isn't empty
+    const stageIdx = (id - startId) % GEOSA_STAGES.length
+    const fields: any = {
+      id,
+      company: g.company,
+      sector: g.sector || sectorForEntity(g.entity_category),
+      country: g.country || 'السعودية',
+      region: g.region || null,
+      tier: tierForClassification(g.geosa_classification),
+      status: 'مبرمة',
+      stage: GEOSA_STAGES[stageIdx],
+      invite_sent: 1, rfi_sent: 1, initial_receipt: 1, response_received: 1, extension_request: 0,
+      platform: null, rfi_delivery: null,
+      workshop_attendance: 'تم الحضور', workshop_date: null, workshop_time: null,
+      notes: g.notes || null,
+      strategic_value: strategicForClassification(g.geosa_classification),
+      activation_score: stageIdx === 0 ? 30 : stageIdx === 1 ? 60 : stageIdx === 2 ? 80 : 95,
+      record_type: 'active',
+      agreement_type: g.agreement_type,
+      geosa_classification: g.geosa_classification,
+      entity_category: g.entity_category,
+      cooperation_areas: serializeCoopAreas(g.cooperation_areas || []),
+      signed_date: g.signed_date || null,
+      expiry_date: g.expiry_date || null,
+      // schedule next review 6 months from now for partners in 'متابعة وتقويم'
+      next_review_date: stageIdx === 2 ? new Date(Date.now() + 180 * 86400_000).toISOString().slice(0, 10) : null,
+      reference_url: g.reference_url || null,
+      latitude: g.latitude ?? null,
+      longitude: g.longitude ?? null,
+    }
+    insP.run(fields)
+    insAct.run(id, 'توقيع', `توقيع ${fields.agreement_type === 'mou' ? 'مذكرة تفاهم' : 'اتفاقية'}`,
+      `تم توقيع الاتفاقية مع ${g.company}`)
+  }
+
+  // === 3) Licensed companies ===
   d.prepare('DELETE FROM licensed_companies').run()
   const insL = d.prepare(`INSERT INTO licensed_companies (id, name, phone, email) VALUES (?, ?, ?, ?)`)
   for (const l of raw.licensed_companies) {
     insL.run(l.id, l.name, l.phone ? String(l.phone) : null, l.email ? String(l.email).trim() : null)
   }
 
-  // Seed sample organization-wide KPIs
+  // === 4) Organization-wide KPIs ===
   d.prepare('DELETE FROM kpis WHERE partner_id IS NULL').run()
   const insK = d.prepare(`INSERT INTO kpis (name, target, actual, unit, period, category) VALUES (?, ?, ?, ?, ?, ?)`)
-  insK.run('عدد الشراكات المُفعّلة', 50, 0, 'شراكة', '2025', 'تفعيل')
-  insK.run('نسبة الرد من الشركات', 70, 0, '%', '2025', 'تفاعل')
+  // GEOSA-aligned KPIs
+  insK.run('عدد الاتفاقيات الفاعلة (مبرمة)', 40, 0, 'اتفاقية', '2025', 'تفعيل')
+  insK.run('نسبة الأنشطة المتفق عليها المنفّذة', 80, 0, '%', '2025', 'تنفيذ')
+  insK.run('عدد المبادرات المشتركة المفعّلة', 25, 0, 'مبادرة', '2025', 'تفعيل')
+  insK.run('متوسط رضا الأطراف (1-5)', 4, 0, 'نقطة', '2025', 'جودة')
+  insK.run('عدد اجتماعات المراجعة الدورية', 50, 0, 'اجتماع', '2025', 'متابعة')
+  insK.run('تنوع مجالات التعاون', 7, 0, 'مجال', '2025', 'تنوع')
+  insK.run('تنوع تصنيفات الجهات', 6, 0, 'صنف', '2025', 'تنوع')
+  // Prospect-funnel KPIs (kept for backward compat)
+  insK.run('نسبة الرد من المستهدفات', 70, 0, '%', '2025', 'تفاعل')
   insK.run('عدد ورش العمل المنفذة', 20, 0, 'ورشة', '2025', 'تنفيذ')
-  insK.run('القيمة الاستراتيجية المتوسطة', 7, 0, 'نقطة', '2025', 'جودة')
-  insK.run('تنوع القطاعات المستهدفة', 8, 0, 'قطاع', '2025', 'تنوع')
 
-  // Seed example opportunities tied to top strategic partners
+  // === 5) Sample opportunities ===
   d.prepare('DELETE FROM opportunities').run()
-  const topPartners = d.prepare(`SELECT id, company FROM partners WHERE strategic_value >= 8 LIMIT 10`).all() as any[]
-  const insO = d.prepare(`INSERT INTO opportunities (partner_id, title, description, estimated_value, probability, status) VALUES (?, ?, ?, ?, ?, ?)`)
-  for (const p of topPartners) {
-    insO.run(p.id, `فرصة تكامل مع ${p.company}`,
-      'فرصة تعاون استراتيجي طويل المدى مبنية على القدرات التقنية المشتركة.',
-      Math.floor(Math.random() * 5_000_000) + 500_000,
-      Math.floor(Math.random() * 60) + 30,
-      'مفتوحة')
+  const topActive = d.prepare(`
+    SELECT id, company FROM partners WHERE record_type = 'active' AND geosa_classification = 'strategic'
+    LIMIT 8
+  `).all() as any[]
+  const insO = d.prepare(`
+    INSERT INTO opportunities (partner_id, title, description, estimated_value, probability, stage, status, expected_close_date)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `)
+  for (const p of topActive) {
+    insO.run(p.id, `توسعة التعاون مع ${p.company}`,
+      'فرصة توسيع نطاق الاتفاقية الحالية إلى مجالات تعاون إضافية (تبادل بيانات، تدريب مشترك).',
+      Math.floor(Math.random() * 3_000_000) + 500_000,
+      Math.floor(Math.random() * 50) + 40,
+      'تأهيل',
+      'مفتوحة',
+      new Date(Date.now() + 90 * 86400_000).toISOString().slice(0, 10))
   }
 })
 tx()
 
 ensureDefaultAdmin()
 
-const total = (d.prepare('SELECT COUNT(*) as n FROM partners').get() as any).n
-const contacts = (d.prepare('SELECT COUNT(*) as n FROM contacts').get() as any).n
-const licensed = (d.prepare('SELECT COUNT(*) as n FROM licensed_companies').get() as any).n
-const users = (d.prepare('SELECT COUNT(*) as n FROM users').get() as any).n
-console.log(`Seeded: ${total} partners, ${contacts} contacts, ${licensed} licensed companies, ${users} user(s)`)
+const total = (d.prepare('SELECT COUNT(*) AS n FROM partners').get() as any).n
+const prospects = (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE record_type = 'prospect'`).get() as any).n
+const active = (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE record_type = 'active'`).get() as any).n
+const contacts = (d.prepare('SELECT COUNT(*) AS n FROM contacts').get() as any).n
+const licensed = (d.prepare('SELECT COUNT(*) AS n FROM licensed_companies').get() as any).n
+const users = (d.prepare('SELECT COUNT(*) AS n FROM users').get() as any).n
+console.log(`Seeded: ${total} partners (${prospects} prospects + ${active} active GEOSA), ${contacts} contacts, ${licensed} licensed, ${users} user(s)`)
 console.log(`Default login: ${process.env.ADMIN_EMAIL || 'admin@local'} / ${process.env.ADMIN_PASSWORD || 'admin1234'}`)

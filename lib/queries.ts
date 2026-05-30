@@ -1,4 +1,7 @@
-import { db, Partner, Contact, Activity, KPI, Opportunity, STAGES } from './db'
+import {
+  db, Partner, Contact, Activity, KPI, Opportunity, ReviewMeeting,
+  STAGES, GEOSA_STAGES,
+} from './db'
 
 export function listPartners(opts: {
   q?: string
@@ -6,6 +9,9 @@ export function listPartners(opts: {
   tier?: string
   sector?: string
   status?: string
+  type?: 'prospect' | 'active'                  // record_type filter (GEOSA)
+  geosa_classification?: string
+  entity_category?: string
   limit?: number
 } = {}): Partner[] {
   const d = db()
@@ -16,6 +22,9 @@ export function listPartners(opts: {
   if (opts.tier)  { where.push('tier = ?');  args.push(opts.tier)  }
   if (opts.sector){ where.push('sector = ?');args.push(opts.sector)}
   if (opts.status){ where.push('status = ?');args.push(opts.status)}
+  if (opts.type)  { where.push('record_type = ?'); args.push(opts.type) }
+  if (opts.geosa_classification) { where.push('geosa_classification = ?'); args.push(opts.geosa_classification) }
+  if (opts.entity_category) { where.push('entity_category = ?'); args.push(opts.entity_category) }
   const sql = `SELECT * FROM partners ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY strategic_value DESC, id ASC ${opts.limit ? 'LIMIT ' + opts.limit : ''}`
   return d.prepare(sql).all(...args) as Partner[]
 }
@@ -57,53 +66,119 @@ export function logActivity(partnerId: number, kind: string, title: string, desc
 
 export type Overview = {
   totalPartners: number
+  prospects: number
+  active: number
   activated: number
   inPipeline: number
   responseRate: number
   workshopsHeld: number
   avgActivation: number
   byStage: { stage: string; count: number }[]
+  byGeosaStage: { stage: string; count: number }[]
   bySector: { sector: string; count: number }[]
   byTier: { tier: string; count: number }[]
   byCountry: { country: string; count: number }[]
+  byClassification: { geosa_classification: string; count: number }[]
+  byEntityCategory: { entity_category: string; count: number }[]
+  byCooperationArea: { area: string; count: number }[]
   recentActivity: Activity[]
   topPartners: Partner[]
+  topActivePartners: Partner[]
+  upcomingReviews: any[]
 }
 
 export function overview(): Overview {
   const d = db()
   const totalPartners = (d.prepare('SELECT COUNT(*) AS n FROM partners').get() as any).n
-  const activated = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE stage = 'تفعيل' OR stage = 'إنجاز'").get() as any).n
+  const prospects = (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE record_type = 'prospect'`).get() as any).n
+  const active = (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE record_type = 'active'`).get() as any).n
+  const activated = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE stage = 'تفعيل' OR stage = 'إنجاز' OR stage = 'تفعيل وتشغيل' OR stage = 'متابعة وتقويم' OR stage = 'تحسين وتطوير'").get() as any).n
   const inPipeline = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE stage != 'إنجاز'").get() as any).n
-  const responded = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE response_received = 1").get() as any).n
-  const invited = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE invite_sent = 1").get() as any).n
+  const responded = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE response_received = 1 AND record_type = 'prospect'").get() as any).n
+  const invited = (d.prepare("SELECT COUNT(*) AS n FROM partners WHERE invite_sent = 1 AND record_type = 'prospect'").get() as any).n
   const workshopsHeld = (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE workshop_attendance LIKE '%حضور%' OR workshop_attendance LIKE '%تم%'`).get() as any).n
   const avgActivation = (d.prepare(`SELECT IFNULL(AVG(activation_score), 0) AS n FROM partners`).get() as any).n
 
+  // Prospect-funnel stages (record_type='prospect')
   const byStage = STAGES.map(stage => ({
     stage,
-    count: (d.prepare('SELECT COUNT(*) AS n FROM partners WHERE stage = ?').get(stage) as any).n
+    count: (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE stage = ? AND record_type = 'prospect'`).get(stage) as any).n,
   }))
-  const bySector = d.prepare(`SELECT sector, COUNT(*) AS count FROM partners GROUP BY sector ORDER BY count DESC`).all() as any[]
-  const byTier = d.prepare(`SELECT tier, COUNT(*) AS count FROM partners GROUP BY tier ORDER BY count DESC`).all() as any[]
-  const byCountry = d.prepare(`SELECT country, COUNT(*) AS count FROM partners GROUP BY country ORDER BY count DESC`).all() as any[]
+  // GEOSA lifecycle stages (record_type='active')
+  const byGeosaStage = GEOSA_STAGES.map(stage => ({
+    stage,
+    count: (d.prepare(`SELECT COUNT(*) AS n FROM partners WHERE stage = ? AND record_type = 'active'`).get(stage) as any).n,
+  }))
+  const bySector = d.prepare(`SELECT sector, COUNT(*) AS count FROM partners WHERE sector IS NOT NULL GROUP BY sector ORDER BY count DESC`).all() as any[]
+  const byTier = d.prepare(`SELECT tier, COUNT(*) AS count FROM partners WHERE tier IS NOT NULL GROUP BY tier ORDER BY count DESC`).all() as any[]
+  const byCountry = d.prepare(`SELECT country, COUNT(*) AS count FROM partners WHERE country IS NOT NULL GROUP BY country ORDER BY count DESC`).all() as any[]
+  const byClassification = d.prepare(`
+    SELECT geosa_classification, COUNT(*) AS count FROM partners
+    WHERE record_type = 'active' AND geosa_classification IS NOT NULL
+    GROUP BY geosa_classification ORDER BY count DESC
+  `).all() as any[]
+  const byEntityCategory = d.prepare(`
+    SELECT entity_category, COUNT(*) AS count FROM partners
+    WHERE record_type = 'active' AND entity_category IS NOT NULL
+    GROUP BY entity_category ORDER BY count DESC
+  `).all() as any[]
+
+  // Cooperation areas: each partner has a JSON array; we count occurrences across all active partners.
+  const activePartners = d.prepare(`SELECT cooperation_areas FROM partners WHERE record_type = 'active'`).all() as any[]
+  const areaCounts: Record<string, number> = {}
+  for (const r of activePartners) {
+    try {
+      const areas = JSON.parse(r.cooperation_areas || '[]') as string[]
+      for (const a of areas) areaCounts[a] = (areaCounts[a] || 0) + 1
+    } catch {}
+  }
+  const byCooperationArea = Object.entries(areaCounts)
+    .map(([area, count]) => ({ area, count }))
+    .sort((a, b) => b.count - a.count)
+
   const recentActivity = d.prepare(`SELECT a.*, p.company FROM activities a JOIN partners p ON p.id = a.partner_id ORDER BY a.occurred_at DESC LIMIT 8`).all() as any[]
   const topPartners = d.prepare(`SELECT * FROM partners ORDER BY activation_score DESC, strategic_value DESC LIMIT 5`).all() as Partner[]
+  const topActivePartners = d.prepare(`
+    SELECT * FROM partners WHERE record_type = 'active'
+    ORDER BY activation_score DESC, strategic_value DESC LIMIT 5
+  `).all() as Partner[]
+
+  const upcomingReviews = d.prepare(`
+    SELECT id, company, next_review_date FROM partners
+    WHERE record_type = 'active' AND next_review_date IS NOT NULL
+      AND date(next_review_date) >= date('now')
+    ORDER BY next_review_date ASC LIMIT 5
+  `).all() as any[]
 
   return {
     totalPartners,
+    prospects,
+    active,
     activated,
     inPipeline,
     responseRate: invited ? Math.round((responded / invited) * 100) : 0,
     workshopsHeld,
     avgActivation: Math.round(avgActivation),
     byStage,
+    byGeosaStage,
     bySector,
     byTier,
     byCountry,
+    byClassification,
+    byEntityCategory,
+    byCooperationArea,
     recentActivity,
     topPartners,
+    topActivePartners,
+    upcomingReviews,
   }
+}
+
+// Review meetings (GEOSA methodology stage 3 — periodic committee meetings)
+export function getReviewMeetings(partnerId: number): ReviewMeeting[] {
+  return db().prepare(
+    `SELECT * FROM review_meetings WHERE partner_id = ? ORDER BY meeting_date DESC`
+  ).all(partnerId) as ReviewMeeting[]
 }
 
 export type Recommendation = {
@@ -121,9 +196,115 @@ export function generateRecommendations(): Recommendation[] {
   const d = db()
   const recs: Recommendation[] = []
 
+  // ═══ GEOSA active-partner recommendations (lifecycle stage) ═══
+
+  // 1) Agreements expiring within 90 days
+  const expiring = d.prepare(`
+    SELECT id, company FROM partners
+    WHERE record_type = 'active' AND expiry_date IS NOT NULL
+      AND date(expiry_date) <= date('now', '+90 days')
+      AND date(expiry_date) >= date('now')
+    ORDER BY expiry_date ASC LIMIT 10
+  `).all() as any[]
+  if (expiring.length) {
+    recs.push({
+      id: 'r-expiring',
+      priority: 'عالية',
+      category: 'تجديد',
+      title: `${expiring.length} اتفاقية تنتهي خلال 90 يوم`,
+      rationale: 'وفقاً لمنهجية GEOSA - مرحلة التحسين والتطوير، يجب مراجعة الاتفاقيات قبل انتهائها بفترة كافية لاتخاذ قرار التجديد.',
+      action: 'فتح ملف كل اتفاقية، تقييم الأثر المتحقق، وبدء مفاوضات التجديد أو إعداد قرار الإنهاء.',
+      expectedImpact: 'منع انقطاع التعاون مع الشركاء الفاعلين وتأمين استمرارية المبادرات.',
+      affectedPartners: expiring,
+    })
+  }
+
+  // 2) Overdue periodic reviews (GEOSA stage 3 — continuous monitoring)
+  const overdueReviews = d.prepare(`
+    SELECT id, company FROM partners
+    WHERE record_type = 'active' AND next_review_date IS NOT NULL
+      AND date(next_review_date) < date('now')
+    ORDER BY next_review_date ASC LIMIT 10
+  `).all() as any[]
+  if (overdueReviews.length) {
+    recs.push({
+      id: 'r-overdue-review',
+      priority: 'عالية',
+      category: 'متابعة',
+      title: `${overdueReviews.length} شراكة تجاوزت موعد المراجعة الدورية`,
+      rationale: 'منهجية GEOSA تتطلب اجتماعات لجان مشتركة نصف سنوية. تأخر المراجعة يُضعف الحوكمة ويفوّت فرص التحسين.',
+      action: 'جدولة اجتماع مراجعة خلال 14 يوم لكل شراكة + تجهيز تقرير الإنجازات وعوائق التنفيذ.',
+      expectedImpact: 'استعادة وتيرة المتابعة، رفع نسبة تنفيذ الأنشطة المتفق عليها، وكشف مبكر للمخاطر.',
+      affectedPartners: overdueReviews,
+    })
+  }
+
+  // 3) Strategic active partners with low activation
+  const strategicLow = d.prepare(`
+    SELECT id, company FROM partners
+    WHERE record_type = 'active' AND geosa_classification = 'strategic' AND activation_score < 50
+    LIMIT 10
+  `).all() as any[]
+  if (strategicLow.length) {
+    recs.push({
+      id: 'r-strategic-gap',
+      priority: 'عالية',
+      category: 'تفعيل',
+      title: `${strategicLow.length} شراكة استراتيجية بأداء تفعيل ضعيف`,
+      rationale: 'شراكات مصنّفة "استراتيجية" حسب GEOSA لكن مؤشر التفعيل أقل من 50%. هذه فجوة بين القيمة المتوقعة والواقع.',
+      action: 'تكليف مدير حسابات مخصص، إعداد خطة تفعيل من 90 يوماً مع KPIs شهرية، ورفع للقيادة شهرياً.',
+      expectedImpact: 'مضاعفة الأنشطة المنفذة خلال ربع واحد ورفع التصنيف لمستوى "متابعة فعّالة".',
+      affectedPartners: strategicLow,
+    })
+  }
+
+  // 4) Active partners with no cooperation area defined
+  const noAreas = d.prepare(`
+    SELECT id, company FROM partners
+    WHERE record_type = 'active' AND (cooperation_areas IS NULL OR cooperation_areas = '[]' OR cooperation_areas = '')
+    LIMIT 10
+  `).all() as any[]
+  if (noAreas.length) {
+    recs.push({
+      id: 'r-no-cooperation-areas',
+      priority: 'متوسطة',
+      category: 'توثيق',
+      title: `${noAreas.length} شراكة بلا تحديد لمجالات التعاون`,
+      rationale: 'منهجية GEOSA - مرحلة التقييم الشامل تتطلب توثيق مجالات التعاون لكل اتفاقية (تبادل بيانات / R&D / تدريب / إلخ).',
+      action: 'مراجعة نص الاتفاقية وتسجيل مجالات التعاون الفعلية في ملف كل شراكة.',
+      expectedImpact: 'تمكين تحليل أعمق للمحفظة وتحديد فجوات التغطية في مجالات أهداف الهيئة.',
+      affectedPartners: noAreas,
+    })
+  }
+
+  // 5) Imbalance in entity categories (over-concentration in one type)
+  const byCategory = d.prepare(`
+    SELECT entity_category, COUNT(*) AS c FROM partners
+    WHERE record_type = 'active' AND entity_category IS NOT NULL
+    GROUP BY entity_category
+  `).all() as any[]
+  const totalActive = byCategory.reduce((s, r) => s + r.c, 0)
+  if (totalActive > 0) {
+    const dominant = byCategory.find(r => r.c / totalActive > 0.55)
+    if (dominant) {
+      recs.push({
+        id: 'r-concentration',
+        priority: 'متوسطة',
+        category: 'تنويع',
+        title: `تركّز محفظة الشراكات الفاعلة في صنف واحد`,
+        rationale: `${Math.round(100*dominant.c/totalActive)}% من الشراكات النشطة في صنف "${dominant.entity_category}". الاعتماد على صنف واحد يقلّل تنوع المنفعة.`,
+        action: 'استكشاف شراكات جديدة في الأصناف الأقل تمثيلاً (خاصة المنظمات الدولية والقطاع الخاص).',
+        expectedImpact: 'محفظة أكثر مرونة وتوازناً يمكنها تغطية جميع جوانب مهمة الهيئة.',
+        affectedPartners: [],
+      })
+    }
+  }
+
+  // ═══ Prospect-funnel recommendations (legacy) ═══
+
   const stalled = d.prepare(`
     SELECT id, company FROM partners
-    WHERE invite_sent = 1 AND response_received = 0
+    WHERE record_type = 'prospect' AND invite_sent = 1 AND response_received = 0
     ORDER BY strategic_value DESC LIMIT 12
   `).all() as any[]
   if (stalled.length > 3) {
@@ -141,8 +322,9 @@ export function generateRecommendations(): Recommendation[] {
 
   const noWorkshop = d.prepare(`
     SELECT id, company FROM partners
-    WHERE response_received = 1 AND (workshop_attendance IS NULL OR workshop_attendance = '' OR workshop_attendance NOT LIKE '%حضور%')
-    AND strategic_value >= 7
+    WHERE record_type = 'prospect' AND response_received = 1
+      AND (workshop_attendance IS NULL OR workshop_attendance = '' OR workshop_attendance NOT LIKE '%حضور%')
+      AND strategic_value >= 7
     ORDER BY strategic_value DESC LIMIT 10
   `).all() as any[]
   if (noWorkshop.length) {

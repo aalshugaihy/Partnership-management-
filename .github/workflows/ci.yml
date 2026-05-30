@@ -9,10 +9,6 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    env:
-      ADMIN_PASSWORD: test-password-1234
-      SESSION_SECRET: ci-secret-key-for-tests-only-32chars
-      NODE_ENV: production
 
     steps:
       - uses: actions/checkout@v4
@@ -22,24 +18,42 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      # Install needs devDependencies (tsx, typescript, tailwindcss) so
+      # NODE_ENV must NOT be 'production' here.
       - name: Install
         run: npm ci
 
       - name: Type-check & Build
         run: npx next build
+        env:
+          ADMIN_PASSWORD: test-password-1234
+          SESSION_SECRET: ci-secret-key-for-tests-only-32chars
 
       - name: Seed
         run: npm run seed
+        env:
+          ADMIN_PASSWORD: test-password-1234
+          SESSION_SECRET: ci-secret-key-for-tests-only-32chars
 
       - name: Smoke test
+        env:
+          ADMIN_PASSWORD: test-password-1234
+          SESSION_SECRET: ci-secret-key-for-tests-only-32chars
+          NODE_ENV: production
         run: |
-          (npx next start -p 3000 -H 0.0.0.0 &) && sleep 6
-          curl -fs http://localhost:3000/api/health
-          curl -fs -c /tmp/c.txt -o /dev/null -X POST http://localhost:3000/api/auth/login \
+          (npx next start -p 3000 -H 0.0.0.0 &) && sleep 8
+          curl -fsS http://localhost:3000/api/health
+          curl -fsS -c /tmp/c.txt -o /dev/null -X POST http://localhost:3000/api/auth/login \
             -H "Content-Type: application/json" \
             -d '{"email":"admin@local","password":"test-password-1234"}'
-          for path in / /partners /pipeline /opportunities /workshops /map /kpi /outreach /recommendations /reports /import /licensed /users /audit; do
+          for path in / /tasks /partners /pipeline /opportunities /workshops /map /kpi /outreach /recommendations /reports /import /licensed /users /audit; do
             code=$(curl -s -b /tmp/c.txt -o /dev/null -w "%{http_code}" http://localhost:3000$path)
+            echo "$path → $code"
+            [ "$code" = "200" ] || exit 1
+          done
+          echo "▼ GEOSA-specific routes"
+          for path in '/partners?type=active' '/partners?type=prospect' '/pipeline?view=active' '/pipeline?view=prospect'; do
+            code=$(curl -s -b /tmp/c.txt -o /dev/null -w "%{http_code}" "http://localhost:3000$path")
             echo "$path → $code"
             [ "$code" = "200" ] || exit 1
           done

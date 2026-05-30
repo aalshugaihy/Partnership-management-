@@ -17,7 +17,8 @@ const COUNTRY_COORDS: Record<string, [number, number]> = {
 export default function MapPage() {
   requireAuth()
   const partners = db().prepare(`
-    SELECT id, company, sector, country, tier, activation_score, latitude, longitude
+    SELECT id, company, sector, country, tier, activation_score, latitude, longitude,
+           record_type, geosa_classification, entity_category
     FROM partners ORDER BY strategic_value DESC
   `).all() as any[]
 

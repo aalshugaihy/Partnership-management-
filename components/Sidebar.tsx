@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 type Me = { email: string; role: string } | null
@@ -8,7 +8,8 @@ type Me = { email: string; role: string } | null
 const baseLinks = [
   { href: '/', label: 'لوحة المعلومات', icon: '◐' },
   { href: '/tasks', label: 'المهام والإشعارات', icon: '●' },
-  { href: '/partners', label: 'الشراكات', icon: '◇' },
+  { href: '/partners?type=active', label: 'الشراكات المبرمة', icon: '◆' },
+  { href: '/partners?type=prospect', label: 'المستهدفات', icon: '◇' },
   { href: '/pipeline', label: 'مسار التفعيل', icon: '⇶' },
   { href: '/opportunities', label: 'الفرص الاستثمارية', icon: '✦' },
   { href: '/workshops', label: 'ورش العمل', icon: '◉' },
@@ -28,6 +29,7 @@ const adminLinks = [
 
 export function Sidebar() {
   const path = usePathname()
+  const search = useSearchParams()
   const [me, setMe] = useState<Me>(null)
 
   useEffect(() => {
@@ -41,6 +43,18 @@ export function Sidebar() {
     ? [{ href: '/portal', label: 'بوابة الشريك', icon: '◉' }]
     : baseLinks
 
+  // A link is "active" when its pathname matches AND its type= query (if any) matches the current one.
+  const isActive = (href: string) => {
+    const [hrefPath, hrefQs] = href.split('?')
+    if (hrefPath !== path) return false
+    if (!hrefQs) return !search.get('type')  // base /partners is active only when no ?type filter
+    const params = new URLSearchParams(hrefQs)
+    for (const [k, v] of params.entries()) {
+      if (search.get(k) !== v) return false
+    }
+    return true
+  }
+
   return (
     <aside className="w-64 bg-white border-l border-slate-200 p-5 flex flex-col gap-1 shrink-0 max-h-screen overflow-y-auto">
       <div className="mb-4 px-2">
@@ -50,7 +64,7 @@ export function Sidebar() {
 
       <div className="space-y-1">
         {links.map(l => (
-          <Link key={l.href} href={l.href} className={`sidebar-link ${path === l.href ? 'active' : ''}`}>
+          <Link key={l.href} href={l.href} className={`sidebar-link ${isActive(l.href) ? 'active' : ''}`}>
             <span className="text-lg leading-none">{l.icon}</span>
             <span>{l.label}</span>
           </Link>
@@ -62,7 +76,7 @@ export function Sidebar() {
           <div className="border-t my-3"></div>
           <div className="text-xs text-slate-400 px-2 mb-1">إدارة النظام</div>
           {adminLinks.map(l => (
-            <Link key={l.href} href={l.href} className={`sidebar-link ${path === l.href ? 'active' : ''}`}>
+            <Link key={l.href} href={l.href} className={`sidebar-link ${isActive(l.href) ? 'active' : ''}`}>
               <span className="text-lg leading-none">{l.icon}</span>
               <span>{l.label}</span>
             </Link>

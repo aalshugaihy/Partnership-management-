@@ -1,0 +1,341 @@
+{
+  "_description": "بيانات الشراكات الفعلية للهيئة العامة للمساحة والمعلومات الجيومكانية (GEOSA) - مستخرجة من قائمة الاتفاقيات الرسمية، أكتوبر 2025",
+  "active_partners": [
+    {
+      "company": "المركز الوطني لتنمية الحياة الفطرية",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "compliance_oversight"],
+      "country": "السعودية",
+      "sector": "بيئة ومحميات"
+    },
+    {
+      "company": "الجمعية السعودية للدراسات الأثرية",
+      "entity_category": "ngo",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["data_exchange", "rnd"],
+      "country": "السعودية",
+      "sector": "تراث وآثار"
+    },
+    {
+      "company": "بوابة الدرعية",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "تراث وتطوير"
+    },
+    {
+      "company": "وزارة البيئة والمياه والزراعة",
+      "entity_category": "government",
+      "agreement_type": "partnership",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "compliance_oversight", "project_execution"],
+      "country": "السعودية",
+      "sector": "بيئة وزراعة"
+    },
+    {
+      "company": "هيئة التراث",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "تراث وآثار"
+    },
+    {
+      "company": "كلية العلوم الاجتماعية - جامعة الإمام",
+      "entity_category": "university",
+      "agreement_type": "mou",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["rnd", "training"],
+      "country": "السعودية",
+      "sector": "تعليم وبحث"
+    },
+    {
+      "company": "مركز مشاريع البنية التحتية",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "بنية تحتية"
+    },
+    {
+      "company": "أمانة محافظة جدة",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "بلديات وخدمات حضرية"
+    },
+    {
+      "company": "شركة اكسبرو",
+      "entity_category": "private",
+      "agreement_type": "mou",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["project_execution", "innovation"],
+      "country": "السعودية",
+      "sector": "تقنية"
+    },
+    {
+      "company": "هيئة تطوير محمية الإمام عبدالعزيز الملكية",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "بيئة ومحميات"
+    },
+    {
+      "company": "الهيئة العامة للطيران المدني (GACA)",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "compliance_oversight"],
+      "country": "السعودية",
+      "sector": "طيران ونقل جوي"
+    },
+    {
+      "company": "الهيئة العامة للعقار (REGA)",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "compliance_oversight"],
+      "country": "السعودية",
+      "sector": "عقارات وتنظيم"
+    },
+    {
+      "company": "المركز الوطني للأرصاد",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "rnd"],
+      "country": "السعودية",
+      "sector": "أرصاد وبيئة"
+    },
+    {
+      "company": "المركز الوطني للتعليم الإلكتروني",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["training", "capacity_building"],
+      "country": "السعودية",
+      "sector": "تعليم رقمي"
+    },
+    {
+      "company": "وزارة النقل والخدمات اللوجستية",
+      "entity_category": "government",
+      "agreement_type": "partnership",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "project_execution", "compliance_oversight"],
+      "country": "السعودية",
+      "sector": "نقل ولوجستيات"
+    },
+    {
+      "company": "المركز الوطني لإدارة عقارات الدولة",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange"],
+      "country": "السعودية",
+      "sector": "عقارات حكومية"
+    },
+    {
+      "company": "هيئة تطوير محمية الملك سلمان بن عبدالعزيز الملكية",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "بيئة ومحميات"
+    },
+    {
+      "company": "نيوم (NEOM)",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "project_execution", "innovation"],
+      "country": "السعودية",
+      "sector": "مدن مستقبلية",
+      "latitude": 27.95,
+      "longitude": 35.0
+    },
+    {
+      "company": "مركز مشاريع البنية التحتية بمنطقة الرياض",
+      "entity_category": "government",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "بنية تحتية إقليمية",
+      "region": "الرياض"
+    },
+    {
+      "company": "معهد إدارة المشاريع",
+      "entity_category": "university",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["training", "capacity_building"],
+      "country": "السعودية",
+      "sector": "تعليم وتدريب"
+    },
+    {
+      "company": "جامعة أم القرى",
+      "entity_category": "university",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["rnd", "training", "capacity_building"],
+      "country": "السعودية",
+      "sector": "تعليم عالٍ وبحث",
+      "region": "مكة المكرمة"
+    },
+    {
+      "company": "تطبيق بلدي",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "innovation"],
+      "country": "السعودية",
+      "sector": "بلديات وخدمات رقمية"
+    },
+    {
+      "company": "هيئة تطوير منطقة المدينة المنورة",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "تطوير حضري",
+      "region": "المدينة المنورة"
+    },
+    {
+      "company": "إمارة منطقة جازان",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "إدارة إقليمية",
+      "region": "جازان"
+    },
+    {
+      "company": "جامعة الملك خالد",
+      "entity_category": "university",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["rnd", "training"],
+      "country": "السعودية",
+      "sector": "تعليم عالٍ وبحث",
+      "region": "عسير"
+    },
+    {
+      "company": "مجمع الملك سلمان العالمي للغة العربية",
+      "entity_category": "government",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["data_exchange", "rnd"],
+      "country": "السعودية",
+      "sector": "لغة وثقافة"
+    },
+    {
+      "company": "الاتحاد السعودي للأمن السيبراني والبرمجة والدرونز",
+      "entity_category": "ngo",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["rnd", "training", "innovation"],
+      "country": "السعودية",
+      "sector": "أمن سيبراني وتقنية"
+    },
+    {
+      "company": "معهد الإدارة العامة",
+      "entity_category": "government",
+      "agreement_type": "partnership",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["training", "capacity_building"],
+      "country": "السعودية",
+      "sector": "تدريب حكومي"
+    },
+    {
+      "company": "مؤسسة سعي للتنمية",
+      "entity_category": "ngo",
+      "agreement_type": "cooperation",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["capacity_building", "innovation"],
+      "country": "السعودية",
+      "sector": "تنمية مجتمعية"
+    },
+    {
+      "company": "جامعة الملك سعود",
+      "entity_category": "university",
+      "agreement_type": "cooperation",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["rnd", "training", "capacity_building", "innovation"],
+      "country": "السعودية",
+      "sector": "تعليم عالٍ وبحث",
+      "region": "الرياض"
+    },
+    {
+      "company": "سايت (SITE)",
+      "entity_category": "private",
+      "agreement_type": "mou",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["data_exchange", "project_execution"],
+      "country": "السعودية",
+      "sector": "تقنية حكومية"
+    },
+    {
+      "company": "شركة NHC Innovation",
+      "entity_category": "private",
+      "agreement_type": "cooperation",
+      "geosa_classification": "operational",
+      "cooperation_areas": ["innovation", "project_execution"],
+      "country": "السعودية",
+      "sector": "إسكان وابتكار"
+    },
+    {
+      "company": "شركة هواوي (Huawei)",
+      "entity_category": "private",
+      "agreement_type": "mou",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["rnd", "innovation", "training"],
+      "country": "الصين",
+      "sector": "تقنية واتصالات",
+      "latitude": 22.5431,
+      "longitude": 114.0579
+    },
+    {
+      "company": "المنظمة الهيدروغرافية الدولية (IHO)",
+      "entity_category": "international_org",
+      "agreement_type": "membership",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "rnd", "capacity_building"],
+      "country": "موناكو",
+      "sector": "هيدروغرافيا دولية",
+      "latitude": 43.7384,
+      "longitude": 7.4246
+    },
+    {
+      "company": "لجنة خبراء الأمم المتحدة لإدارة المعلومات الجيومكانية العالمية (UN-GGIM)",
+      "entity_category": "international_org",
+      "agreement_type": "membership",
+      "geosa_classification": "strategic",
+      "cooperation_areas": ["data_exchange", "rnd", "capacity_building"],
+      "country": "الولايات المتحدة",
+      "sector": "جيومكانية دولية"
+    },
+    {
+      "company": "مجموعة خبراء الأمم المتحدة للأسماء الجغرافية (UNGEGN)",
+      "entity_category": "international_org",
+      "agreement_type": "membership",
+      "geosa_classification": "supporting",
+      "cooperation_areas": ["data_exchange", "rnd"],
+      "country": "الولايات المتحدة",
+      "sector": "أسماء جغرافية دولية"
+    }
+  ]
+}
