@@ -181,6 +181,21 @@ function migrate(d: Database.Database) {
       created_at TEXT DEFAULT (datetime('now'))
     );
     CREATE INDEX IF NOT EXISTS idx_login_id ON login_attempts(identifier, created_at DESC);
+
+    -- GEOSA methodology: periodic review meetings between GEOSA and active partners
+    CREATE TABLE IF NOT EXISTS review_meetings (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      partner_id INTEGER NOT NULL REFERENCES partners(id) ON DELETE CASCADE,
+      meeting_date TEXT NOT NULL,
+      attendees TEXT,
+      outcomes TEXT,
+      next_actions TEXT,
+      satisfaction_score INTEGER,
+      created_by TEXT,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+    CREATE INDEX IF NOT EXISTS idx_reviews_partner ON review_meetings(partner_id);
+    CREATE INDEX IF NOT EXISTS idx_reviews_date ON review_meetings(meeting_date DESC);
   `)
 
   // Idempotent column additions for upgrades of existing databases
@@ -193,6 +208,16 @@ function migrate(d: Database.Database) {
   addColumn('partners', 'longitude', 'REAL')
   addColumn('partners', 'tags', 'TEXT')
   addColumn('partners', 'assigned_to', 'TEXT')
+  // GEOSA methodology fields (October 2025)
+  addColumn('partners', 'record_type', `TEXT DEFAULT 'prospect'`)         // 'prospect' | 'active'
+  addColumn('partners', 'agreement_type', 'TEXT')                          // 'mou'|'partnership'|'cooperation'|'membership'
+  addColumn('partners', 'geosa_classification', 'TEXT')                    // 'strategic'|'operational'|'supporting'
+  addColumn('partners', 'entity_category', 'TEXT')                         // 'government'|'university'|'private'|...
+  addColumn('partners', 'cooperation_areas', `TEXT DEFAULT '[]'`)          // JSON array
+  addColumn('partners', 'signed_date', 'TEXT')
+  addColumn('partners', 'expiry_date', 'TEXT')
+  addColumn('partners', 'next_review_date', 'TEXT')
+  addColumn('partners', 'reference_url', 'TEXT')                           // link to MoU document
   addColumn('opportunities', 'stage', `TEXT DEFAULT 'استكشاف'`)
   addColumn('opportunities', 'expected_close_date', 'TEXT')
   addColumn('opportunities', 'updated_at', 'TEXT')
@@ -201,6 +226,11 @@ function migrate(d: Database.Database) {
   addColumn('licensed_companies', 'license_type', 'TEXT')
   addColumn('licensed_companies', 'issued_at', 'TEXT')
   addColumn('licensed_companies', 'expires_at', 'TEXT')
+
+  // Helpful index for the new record_type filter
+  try { d.exec(`CREATE INDEX IF NOT EXISTS idx_partners_record_type ON partners(record_type)`) } catch {}
+  try { d.exec(`CREATE INDEX IF NOT EXISTS idx_partners_geosa ON partners(geosa_classification)`) } catch {}
+  try { d.exec(`CREATE INDEX IF NOT EXISTS idx_partners_entity ON partners(entity_category)`) } catch {}
 }
 
 export type Partner = {
@@ -231,8 +261,30 @@ export type Partner = {
   impact_score: number
   tags: string | null
   assigned_to: string | null
+  // GEOSA methodology fields
+  record_type: 'prospect' | 'active'
+  agreement_type: string | null
+  geosa_classification: string | null
+  entity_category: string | null
+  cooperation_areas: string | null  // JSON array stored as TEXT
+  signed_date: string | null
+  expiry_date: string | null
+  next_review_date: string | null
+  reference_url: string | null
   created_at: string
   updated_at: string
+}
+
+export type ReviewMeeting = {
+  id: number
+  partner_id: number
+  meeting_date: string
+  attendees: string | null
+  outcomes: string | null
+  next_actions: string | null
+  satisfaction_score: number | null
+  created_by: string | null
+  created_at: string
 }
 
 export type Contact = {
@@ -305,8 +357,14 @@ export type AuditLog = {
   created_at: string
 }
 
+// Prospect funnel stages (for record_type='prospect')
 export const STAGES = ['دعوة', 'RFI', 'استلام أولي', 'رد', 'ورشة عمل', 'تفعيل', 'إنجاز'] as const
 export type Stage = typeof STAGES[number]
+
+// GEOSA lifecycle stages (for record_type='active' - signed partnerships)
+// Per GEOSA methodology document (October 2025)
+export const GEOSA_STAGES = ['تقييم شامل', 'تفعيل وتشغيل', 'متابعة وتقويم', 'تحسين وتطوير'] as const
+export type GeosaStage = typeof GEOSA_STAGES[number]
 
 export const OPPORTUNITY_STAGES = ['استكشاف', 'تأهيل', 'عرض', 'تفاوض', 'إغلاق فائز', 'إغلاق خاسر'] as const
 export type OpportunityStage = typeof OPPORTUNITY_STAGES[number]
@@ -319,6 +377,55 @@ export const ROLE_LABELS: Record<Role, string> = {
   manager: 'مدير شراكات',
   viewer: 'مُطّلع',
   rep: 'ممثل شريك',
+}
+
+// === GEOSA Methodology Taxonomies ===
+
+export const RECORD_TYPES = ['prospect', 'active'] as const
+export const RECORD_TYPE_LABELS: Record<string, string> = {
+  prospect: 'مستهدف',
+  active: 'مبرمة',
+}
+
+export const AGREEMENT_TYPES = ['mou', 'partnership', 'cooperation', 'membership'] as const
+export const AGREEMENT_TYPE_LABELS: Record<string, string> = {
+  mou: 'مذكرة تفاهم',
+  partnership: 'اتفاقية شراكة',
+  cooperation: 'اتفاقية تعاون',
+  membership: 'عضوية دولية',
+}
+
+export const GEOSA_CLASSIFICATIONS = ['strategic', 'operational', 'supporting'] as const
+export const GEOSA_CLASSIFICATION_LABELS: Record<string, string> = {
+  strategic: 'استراتيجية',
+  operational: 'تشغيلية',
+  supporting: 'داعمة',
+}
+
+export const ENTITY_CATEGORIES = [
+  'government', 'university', 'private', 'international_org', 'regional_alliance', 'ngo',
+] as const
+export const ENTITY_CATEGORY_LABELS: Record<string, string> = {
+  government: 'جهة حكومية',
+  university: 'جامعة / معهد',
+  private: 'قطاع خاص',
+  international_org: 'منظمة دولية',
+  regional_alliance: 'تحالف إقليمي',
+  ngo: 'منظمة غير ربحية',
+}
+
+export const COOPERATION_AREAS = [
+  'data_exchange', 'rnd', 'training', 'project_execution',
+  'capacity_building', 'compliance_oversight', 'innovation',
+] as const
+export const COOPERATION_AREA_LABELS: Record<string, string> = {
+  data_exchange: 'تبادل البيانات',
+  rnd: 'البحث والتطوير',
+  training: 'التدريب والتعليم',
+  project_execution: 'تنفيذ مشاريع',
+  capacity_building: 'بناء قدرات',
+  compliance_oversight: 'الرقابة والامتثال',
+  innovation: 'الابتكار وريادة الأعمال',
 }
 
 export function computeActivationScore(p: Partial<Partner>): number {
@@ -340,6 +447,33 @@ export function deriveStage(p: Partial<Partner>): Stage {
   if (p.rfi_sent) return 'RFI'
   if (p.invite_sent) return 'دعوة'
   return 'دعوة'
+}
+
+export function parseCoopAreas(json: string | null): string[] {
+  if (!json) return []
+  try {
+    const arr = JSON.parse(json)
+    return Array.isArray(arr) ? arr.filter((s): s is string => typeof s === 'string') : []
+  } catch { return [] }
+}
+
+export function serializeCoopAreas(areas: string[]): string {
+  return JSON.stringify(areas.filter(a => COOPERATION_AREAS.includes(a as any)))
+}
+
+// For active partnerships: infer GEOSA lifecycle stage from agreement data
+export function deriveGeosaStage(p: {
+  signed_date?: string | null
+  next_review_date?: string | null
+  stage?: string | null
+}): GeosaStage {
+  if (p.stage && GEOSA_STAGES.includes(p.stage as any)) return p.stage as GeosaStage
+  if (!p.signed_date) return 'تقييم شامل'
+  if (p.next_review_date) {
+    const due = new Date(p.next_review_date)
+    if (due.getTime() < Date.now()) return 'متابعة وتقويم'
+  }
+  return 'تفعيل وتشغيل'
 }
 
 export function audit(action: string, opts: {

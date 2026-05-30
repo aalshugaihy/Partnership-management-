@@ -16,12 +16,55 @@ export function generateTasks(): Task[] {
   const d = db()
   const tasks: Task[] = []
 
+  // === GEOSA active-partner tasks ===
+
+  // Overdue periodic reviews (GEOSA stage 3)
+  const overdueRev = d.prepare(`
+    SELECT id, company, next_review_date FROM partners
+    WHERE record_type = 'active' AND next_review_date IS NOT NULL
+      AND date(next_review_date) < date('now')
+    ORDER BY next_review_date ASC LIMIT 10
+  `).all() as any[]
+  for (const p of overdueRev) {
+    tasks.push({
+      id: `review-overdue-${p.id}`,
+      priority: 'عالية',
+      category: 'مراجعة دورية مستحقة',
+      title: `جدولة اجتماع مراجعة مع ${p.company}`,
+      detail: `موعد المراجعة كان في ${p.next_review_date}. منهجية GEOSA تتطلب اجتماعات نصف سنوية.`,
+      partnerId: p.id,
+      href: `/partners/${p.id}`,
+    })
+  }
+
+  // Agreements expiring soon
+  const expiring = d.prepare(`
+    SELECT id, company, expiry_date FROM partners
+    WHERE record_type = 'active' AND expiry_date IS NOT NULL
+      AND date(expiry_date) <= date('now', '+60 days')
+      AND date(expiry_date) >= date('now')
+    ORDER BY expiry_date ASC LIMIT 10
+  `).all() as any[]
+  for (const p of expiring) {
+    tasks.push({
+      id: `expiring-${p.id}`,
+      priority: 'عالية',
+      category: 'اتفاقية قاربت الانتهاء',
+      title: `قرار تجديد لاتفاقية ${p.company}`,
+      detail: `تنتهي في ${p.expiry_date}. ابدأ مفاوضات التجديد أو ضع قرار الإغلاق الرسمي.`,
+      partnerId: p.id,
+      href: `/partners/${p.id}`,
+    })
+  }
+
+  // === Prospect-funnel tasks ===
+
   // Partners invited but no response after a "long" time (we don't track invitation date,
   // so use updated_at as proxy for inactivity)
   const stalled = d.prepare(`
     SELECT id, company, julianday('now') - julianday(updated_at) AS days_since
     FROM partners
-    WHERE invite_sent = 1 AND response_received = 0
+    WHERE record_type = 'prospect' AND invite_sent = 1 AND response_received = 0
     ORDER BY strategic_value DESC LIMIT 10
   `).all() as any[]
   for (const p of stalled) {

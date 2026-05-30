@@ -59,5 +59,11 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
   CMD curl -fsS http://localhost:${PORT:-3000}/api/health || exit 1
 
-# Auto-seed on first run if database is missing
-CMD ["sh", "-c", "if [ ! -f /app/data/app.db ]; then echo '⇒ Seeding initial database...'; npm run seed; fi && exec npx next start -p ${PORT:-3000} -H 0.0.0.0"]
+# Seed on every start. The seed script is idempotent:
+#  - prospects use INSERT OR REPLACE by id
+#  - GEOSA active partners check by company name (skip if exists)
+#  - licensed_companies are DELETE+REINSERT
+#  - org-wide KPIs same
+# This ensures schema/data upgrades (e.g. new GEOSA partners) propagate even
+# when a persistent DB already exists from a previous deployment.
+CMD ["sh", "-c", "echo '⇒ Running seed (idempotent)...' && npm run seed && exec npx next start -p ${PORT:-3000} -H 0.0.0.0"]

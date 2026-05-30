@@ -1,30 +1,51 @@
 import { requireAuth } from '@/lib/auth'
 import { listPartners } from '@/lib/queries'
-import { STAGES } from '@/lib/db'
+import { STAGES, GEOSA_STAGES, GEOSA_CLASSIFICATION_LABELS } from '@/lib/db'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
-export default function PipelinePage() {
+type SP = { view?: 'active' | 'prospect' }
+
+export default function PipelinePage({ searchParams }: { searchParams: SP }) {
   requireAuth()
-  const all = listPartners()
-  const groups = STAGES.map(stage => ({
+  const view = searchParams.view || 'active'
+  const recordType = view === 'active' ? 'active' : 'prospect'
+  const stages = view === 'active' ? GEOSA_STAGES : STAGES
+  const all = listPartners({ type: recordType as any })
+  const groups = stages.map(stage => ({
     stage,
-    items: all.filter(p => p.stage === stage)
+    items: all.filter(p => p.stage === stage),
   }))
 
   return (
     <div className="space-y-6">
-      <header>
-        <h1 className="text-2xl font-black">مسار التفعيل (Pipeline)</h1>
-        <p className="text-slate-500 mt-1">عرض الشراكات حسب مرحلتها في رحلة التفعيل</p>
+      <header className="flex items-end justify-between flex-wrap gap-3">
+        <div>
+          <h1 className="text-2xl font-black">مسار التفعيل</h1>
+          <p className="text-slate-500 mt-1">
+            {view === 'active'
+              ? 'دورة حياة الشراكات المبرمة وفق منهجية GEOSA (4 مراحل)'
+              : 'قمع المستهدفات: من الدعوة إلى التفعيل (7 مراحل)'}
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Link href="/pipeline?view=active"
+            className={`badge ${view === 'active' ? 'badge-green' : 'badge-slate'} px-3 py-1.5 text-sm`}>
+            مبرمة (GEOSA)
+          </Link>
+          <Link href="/pipeline?view=prospect"
+            className={`badge ${view === 'prospect' ? 'badge-amber' : 'badge-slate'} px-3 py-1.5 text-sm`}>
+            مستهدفات
+          </Link>
+        </div>
       </header>
 
       <div className="overflow-x-auto">
         <div className="flex gap-4 min-w-max pb-4">
           {groups.map(g => (
             <div key={g.stage} className="w-72 shrink-0">
-              <div className="card p-3 mb-3 bg-gradient-to-l from-brand-50 to-white">
+              <div className={`card p-3 mb-3 bg-gradient-to-l ${view === 'active' ? 'from-emerald-50' : 'from-brand-50'} to-white`}>
                 <div className="flex justify-between items-center">
                   <h3 className="font-bold">{g.stage}</h3>
                   <span className="badge badge-blue">{g.items.length}</span>
@@ -37,7 +58,13 @@ export default function PipelinePage() {
                     <div className="font-semibold text-sm">{p.company}</div>
                     <div className="text-xs text-slate-500 mt-1 flex justify-between">
                       <span>{p.sector}</span>
-                      <span className="badge badge-slate text-xs">{p.tier}</span>
+                      {view === 'active' && p.geosa_classification ? (
+                        <span className="badge badge-slate text-xs">
+                          {GEOSA_CLASSIFICATION_LABELS[p.geosa_classification]}
+                        </span>
+                      ) : (
+                        <span className="badge badge-slate text-xs">{p.tier}</span>
+                      )}
                     </div>
                     <div className="h-1 mt-2 bg-slate-100 rounded-full overflow-hidden">
                       <div className={`h-full ${p.activation_score > 60 ? 'bg-emerald-500' : p.activation_score > 30 ? 'bg-amber-500' : 'bg-rose-500'}`}
